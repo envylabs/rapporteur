@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resource :status, :only => [:show]# , :as => :_status
+  resource :_status, only: [:show], controller: 'statuses' 
 end
