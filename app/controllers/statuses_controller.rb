@@ -15,7 +15,7 @@ class StatusesController < ActionController::Base
   #
   def activerecord_ok?
     @activerecord_ok ||=
-      true if ActiveRecord::Base.connection.execute('select current_date as CurrentDate').first["CurrentDate"]
+      true if ActiveRecord::Base.connection.execute('select current_date as currentdate').first["currentdate"]
   end
   
   ##
