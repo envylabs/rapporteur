@@ -1,0 +1,8 @@
+en:
+  activemodel:
+    errors:
+      models:
+        codeschool/status/checker:
+          attributes:
+            base:
+              database_unavailable: "The application database is inaccessible or unavailable"

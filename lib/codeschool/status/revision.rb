@@ -1,31 +1,33 @@
 module Codeschool
   module Status
     class Revision
-      def current
-        current_git_sha
+      class_attribute :_current
+
+      def self.current
+        self._current ||= calculate_current
       end
-      
-      private
-      
-      def on_heroku?
-         ENV['HEROKU_UPID'].present?
-       end
 
-       def revision_present?
-         ::Rails.root.join('REVISION').exist?
-       end
+      def self.current=(revision)
+        self._current = calculate_current(revision)
+      end
 
-       def current_git_sha
-         @current_git_sha ||= begin
-           if revision_present?
-             File.read(::Rails.root.join('REVISION')).strip
-           elsif on_heroku?
-             ENV['COMMIT_HASH'].strip
-           else
-             `cd "#{::Rails.root}" && git rev-parse HEAD 2>/dev/null`.strip
-           end
-         end
-       end
+      def self.default_revision_source
+        `git rev-parse HEAD 2>/dev/null`.strip
+      rescue
+      end
+
+      def self.calculate_current(revision = default_revision_source)
+        case revision
+        when String
+          revision
+        when Proc
+          revision.call
+        when NilClass
+          "You must provide a Codeschool::Status::Revision.current= String or Proc"
+        else
+          raise ArgumentError, "Unknown revision type given: #{revision.inspect}"
+        end
+      end
     end
   end
 end

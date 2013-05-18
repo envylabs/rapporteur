@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resource :_status, only: [:show], controller: 'statuses' 
+  get 'status.json', to: 'statuses#show', defaults: {format: 'json'}
 end
