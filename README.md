@@ -101,7 +101,7 @@ To add checks to your application, define the checks you'd like to run in your
 environment or application configuration files or initializers, such as:
 
 ```ruby
-# config/initializers/status_checker.rb
+# config/initializers/rapporteur.rb
 Rapporteur::Checker.add_check(Rapporteur::Checks::ActiveRecordCheck)
 ```
 
@@ -124,7 +124,7 @@ check for the state of the world that you're interested in, and if you're not
 happy with it, add an error to the given `checker` instance:
 
 ```ruby
-# config/initializers/status_checker.rb
+# config/initializers/rapporteur.rb
 
 my_proc_check = lambda { |checker|
   checker.add_error("You have bad luck!") if rand(10) > 5
@@ -156,19 +156,20 @@ may be resource intensive**.
 
 If you need to customize the way in which the current application revision is
 calculated (by default it runs a `git rev-parse HEAD`), you may do so by
-modifying the necessary environment file in your Rails application:
+modifying the necessary environment file or creating an initializer in your
+Rails application:
+
+```ruby
+# config/initializers/rapporteur.rb
+Rapporteur::Revision.current = "revision123"
+```
 
 ```ruby
 # config/environments/production.rb
-
 MyApplication.configure do
-  # ... config.settings ...
-
   config.to_prepare do
     Rapporteur::Revision.current = "revision123"
   end
-
-  # ... config.settings ...
 end
 ```
 
