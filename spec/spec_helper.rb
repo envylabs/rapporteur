@@ -3,7 +3,7 @@ require 'bundler/setup'
 require 'combustion'
 
 ENV["RAILS_ENV"] ||= 'test'
-Combustion.initialize! :action_controller
+Combustion.initialize! :action_controller, :active_record
 
 require 'rspec/rails'
 require 'codeschool/status'
