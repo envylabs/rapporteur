@@ -1,4 +1,4 @@
-Copyright (c) 2013 Christopher Green
+Copyright (c) 2013 Envy Labs LLC and Code School LLC
 
 MIT License
 

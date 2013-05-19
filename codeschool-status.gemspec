@@ -6,10 +6,10 @@ require 'codeschool/status/version'
 Gem::Specification.new do |spec|
   spec.name          = "codeschool-status"
   spec.version       = Codeschool::Status::VERSION
-  spec.authors       = ["Christopher Green"]
-  spec.email         = ["chris@envylabs.com"]
-  spec.description   = %q{An engine that provides common status polling endpoint for codeschool courses.}
-  spec.summary       = %q{An engine that provides common status polling endpoint for codeschool courses.}
+  spec.authors       = ["Envy Labs", "Code School"]
+  spec.email         = [""]
+  spec.description   = %q{An engine that provides common status polling endpoint.}
+  spec.summary       = %q{An engine that provides common status polling endpoint.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
