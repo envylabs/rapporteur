@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'codeschool/status/version'
+require 'rapporteur/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "codeschool-status"
-  spec.version       = Codeschool::Status::VERSION
+  spec.name          = "rapporteur"
+  spec.version       = Rapporteur::VERSION
   spec.authors       = ["Envy Labs", "Code School"]
   spec.email         = [""]
   spec.description   = %q{An engine that provides common status polling endpoint.}

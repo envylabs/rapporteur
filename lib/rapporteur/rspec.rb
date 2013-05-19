@@ -1,3 +1,5 @@
+require 'rapporteur'
+
 shared_examples_for 'a successful status response' do
   it 'responds with HTTP 200' do
     expect(subject.response_code).to(eq(200))

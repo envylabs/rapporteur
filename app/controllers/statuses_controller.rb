@@ -1,10 +1,10 @@
 class StatusesController < ActionController::Base
-  self.responder = Codeschool::Status::Responder
+  self.responder = Rapporteur::Responder
   respond_to :json
 
   def show
-    respond_with(Codeschool::Status::Checker.run, {
-      serializer: Codeschool::Status::Serializer
+    respond_with(Rapporteur::Checker.run, {
+      serializer: Rapporteur::Serializer
     })
   end
 end

@@ -1,4 +1,4 @@
-# Codeschool::Status [![Build Status](https://magnum.travis-ci.com/codeschool/codeschool-status.png?token=U1RMnDeNpXqKyFsQVEWy&branch=concern_separation)](https://magnum.travis-ci.com/codeschool/codeschool-status)
+# Rapporteur
 
 This gem provides a singular, status-checking endpoint to your application. The
 endpoint provides a JSON response with either an HTTP 200 or an HTTP 500
@@ -40,7 +40,7 @@ Supported Rails versions:
 
 To install, add this line to your application's Gemfile:
 
-    gem 'codeschool-status'
+    gem 'rapporteur'
 
 And then execute:
 
@@ -93,7 +93,7 @@ Hmm. Well... you just broke it.
 
 This gem ships with the following checks tested and packaged:
 
-* **Codeschool::Status::Checks::ActiveRecordCheck** - Performs a trivial test
+* **Rapporteur::Checks::ActiveRecordCheck** - Performs a trivial test
   of the current `ActiveRecord::Base.connection` to ensure basic database
   connectivity.
 
@@ -102,7 +102,7 @@ environment or application configuration files or initializers, such as:
 
 ```ruby
 # config/initializers/status_checker.rb
-Codeschool::Status::Checker.add_check(Codeschool::Status::Checks::ActiveRecordCheck)
+Rapporteur::Checker.add_check(Rapporteur::Checks::ActiveRecordCheck)
 ```
 
 Or, make an environment specific check with:
@@ -111,7 +111,7 @@ Or, make an environment specific check with:
 # config/environments/production.rb
 MyApplication.configure do
   config.to_prepare do
-    Codeschool::Status::Checker.add_check(Codeschool::Status::Checks::ActiveRecordCheck)
+    Rapporteur::Checker.add_check(Rapporteur::Checks::ActiveRecordCheck)
   end
 end
 ```
@@ -130,7 +130,7 @@ my_proc_check = lambda { |checker|
   checker.add_error("You have bad luck!") if rand(10) > 5
 }
 
-Codeschool::Status::Checker.add_check(my_proc_check)
+Rapporteur::Checker.add_check(my_proc_check)
 
 class MyClassCheck
   def self.call(checker)
@@ -139,7 +139,7 @@ class MyClassCheck
   end
 end
 
-Codeschool::Status::Checker.add_check(MyClassCheck)
+Rapporteur::Checker.add_check(MyClassCheck)
 ```
 
 Certainly, the definition and registration of the checks do not need to occur
@@ -165,7 +165,7 @@ MyApplication.configure do
   # ... config.settings ...
 
   config.to_prepare do
-    Codeschool::Status::Revision.current = "revision123"
+    Rapporteur::Revision.current = "revision123"
   end
 
   # ... config.settings ...
@@ -177,16 +177,16 @@ executed and memoized. Useful examples of this are:
 
 ```ruby
 # Read a Capistrano REVISION file
-Codeschool::Status::Revision.current = Rails.root.join("REVISION").read.strip
+Rapporteur::Revision.current = Rails.root.join("REVISION").read.strip
 
 # Force a particular directory and use Git
-Codeschool::Status::Revision.current = `cd "#{Rails.root}" && git rev-parse HEAD`.strip
+Rapporteur::Revision.current = `cd "#{Rails.root}" && git rev-parse HEAD`.strip
 
 # Use an ENV variable (Heroku)
-Codeschool::Status::Revision.current = ENV["REVISION"]
+Rapporteur::Revision.current = ENV["REVISION"]
 
 # Do some crazy calculation
-Codeschool::Status::Revision.current = lambda { MyRevisionCalculator.execute! }
+Rapporteur::Revision.current = lambda { MyRevisionCalculator.execute! }
 ```
 
 ### Customizing the error messages
@@ -203,7 +203,7 @@ en:
   activemodel:
     errors:
       models:
-        codeschool/status/checker:
+        rapporteur/checker:
           attributes:
             base:
               database_unavailable: "Something went wrong"

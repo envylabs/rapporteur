@@ -2,7 +2,7 @@ en:
   activemodel:
     errors:
       models:
-        codeschool/status/checker:
+        rapporteur/checker:
           attributes:
             base:
               database_unavailable: "The application database is inaccessible or unavailable"
