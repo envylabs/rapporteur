@@ -1,5 +1,4 @@
 [![Build Status](https://magnum.travis-ci.com/codeschool/codeschool-status.png?token=U1RMnDeNpXqKyFsQVEWy&branch=concern_separation)](https://magnum.travis-ci.com/codeschool/codeschool-status)
-
 # Codeschool::Status
 
 This gem provides a singular, status-checking endpoint to your application. The
