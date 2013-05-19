@@ -1,5 +1,12 @@
 module Rapporteur
+  # A customization of the default Rails ActionController::Responder.
+  # Primarily, this is used to smooth out the differences between Rails
+  # responder versions and allow for error messages in GET requests.
+  #
   class Responder < ActionController::Responder
+    # Internal: Overrides the default behavior by ignoring the HTTP verb and
+    # always responding with errors if the rendering resource contains errors.
+    #
     def to_format
       if has_errors?
         display_errors
