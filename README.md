@@ -38,6 +38,8 @@ And then execute:
 
 ## Usage
 
+### Customizing the revision
+
 If you need to customize the way in which the current application revision is
 calculated (by default it runs a `git rev-parse HEAD`), you may do so by
 modifying the necessary environment file in your Rails application:
@@ -71,6 +73,26 @@ Codeschool::Status::Revision.current = ENV["REVISION"]
 
 # Do some crazy calculation
 Codeschool::Status::Revision.current = lambda { MyRevisionCalculator.execute! }
+```
+
+### Customizing the error messages
+
+The error messages displayed in the event that application validations fail are
+all collected through I18n. There are default localization strings provided
+with the gem, but you may override them as necessary, simply by redefining them
+in a locales file within your local application.
+
+For example, to override the database check failure message:
+
+```yaml
+en:
+  activemodel:
+    errors:
+      models:
+        codeschool/status/checker:
+          attributes:
+            base:
+              database_unavailable: "Something went wrong"
 ```
 
 ## Contributing
