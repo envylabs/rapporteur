@@ -3,7 +3,7 @@ class StatusesController < ActionController::Base
   respond_to :json
 
   def show
-    respond_with(Codeschool::Status::Checker.check, {
+    respond_with(Codeschool::Status::Checker.run, {
       serializer: Codeschool::Status::Serializer
     })
   end

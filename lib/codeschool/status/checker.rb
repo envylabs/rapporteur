@@ -1,38 +1,52 @@
+require 'singleton'
+require 'set'
+
 module Codeschool
   module Status
     class Checker
+      include Singleton
       include ActiveModel::Validations
       include ActiveModel::SerializerSupport
 
 
-      def self.check
-        status = new
-        status.check
-        status
+      def self.add_check(object)
+        raise ArgumentError, "A check must respond to #call." unless object.respond_to?(:call)
+        instance.checks << object
+        self
+      end
+
+      def self.clear
+        instance.checks.clear
+        self
+      end
+
+      def self.run
+        instance.errors.clear
+        instance.run
       end
 
 
-      def check
-        validate_database_connection
-        self
+      def add_error(message)
+        errors.add(:base, message)
+      end
+
+      def checks
+        @checks ||= Set.new
       end
 
       def revision
         Revision.current
       end
 
-      def time
-        Time.now
+      def run
+        checks.each do |object|
+          object.call(self)
+        end
+        self
       end
 
-
-      private
-
-
-      def validate_database_connection
-        ActiveRecord::Base.connection.execute("SELECT current_time AS time").first.fetch('time')
-      rescue
-        errors.add(:base, :database_unavailable)
+      def time
+        Time.now
       end
     end
   end
