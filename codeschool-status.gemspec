@@ -10,6 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["chris@envylabs.com"]
   spec.description   = %q{An engine that provides common status polling endpoint for codeschool courses.}
   spec.summary       = %q{An engine that provides common status polling endpoint for codeschool courses.}
+  spec.homepage      = ""
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
