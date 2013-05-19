@@ -43,6 +43,21 @@ automatically load and configure the gem. Technically speaking, the gem is a
 Rails Engine, so it auto-initializes with Rails starts up. There is no further
 configuration necessary.
 
+By default, there are no application checks that run and the status endpoint
+simply reports the current application revision and time. This is useful for a
+basic connectivity check to be watched by a third party service like Pingdom
+for a very simple, non-critical application.
+
+You may optionally use any of the pre-defined checks (such as the ActiveRecord
+connection check) to expand the robustness of the status checks. Adding a check
+will execute that check each time the status endpoint is requested, so be
+somewhat wary of doing _too_ much. See more in the adding checks section, below.
+
+Further, you can define your own checks which could be custom to your
+application or environment and report their own, unique errors.  The only
+requirement is that the check objects are callable (respond to `#call`, like a
+Proc). See more in the adding custom checks section, below.
+
 ### The endpoint
 
 This gem provides a new, single endpoint in your application. Specifically, it
@@ -61,6 +76,69 @@ Were you already using the `/status.json` endpoint or the "status" route name?
 Hmm. Well... you just broke it.
 
 ## Customization
+
+### Adding checks
+
+This gem ships with the following checks tested and packaged:
+
+* Codeschool::Status::ActiveRecordCheck - Performs a trivial test of the
+  current `ActiveRecord::Base.connection` to ensure basic database
+  connectivity.
+
+To add checks to your application, define the checks you'd like to run in your
+environment or application configuration files or initializers, such as:
+
+```ruby
+# config/initializers/status_checker.rb
+Codeschool::Status::Checker.add_check(Codeschool::Status::Checks::ActiveRecordCheck)
+```
+
+Or
+
+```ruby
+# config/environments/production.rb
+MyApplication.configure do
+  config.to_prepare do
+    Codeschool::Status::Checker.add_check(Codeschool::Status::Checks::ActiveRecordCheck)
+  end
+end
+```
+
+### Creating custom checks
+
+It is simple to add a custom check to the status endpoint. All that is required
+is that you give the checker an object that is callable. In your object, simply
+check for the state of the world that you're interested in, and if you're not
+happy with it, add an error to the given `checker` instance:
+
+```ruby
+# config/initializers/status_checker.rb
+
+my_proc_check = lambda { |checker|
+  checker.add_error("You have bad luck!") if rand(10) > 5
+}
+
+Codeschool::Status::Checker.add_check(my_proc_check)
+
+class MyClassCheck
+  def self.call(checker)
+    @@counter ||= 0
+    checker.add_error("Stop calling me!!") if @@counter > 50
+  end
+end
+
+Codeschool::Status::Checker.add_check(MyClassCheck)
+```
+
+Certainly, the definition and registration of the checks do not need to occur
+within the same file, but you get the idea. Also: Please make your checks more
+useful than those defined above. ;)
+
+You could create a checker for your active Redis connection, Memcached
+connections, disk usage percentage, process count, memory usage, or really
+anything you like. Again, because these checks get executed every time the
+status endpoint is called, **be mindful of the tradeoffs when making a check that
+may be resource intensive**.
 
 ### Customizing the revision
 
