@@ -51,12 +51,14 @@ for a very simple, non-critical application.
 You may optionally use any of the pre-defined checks (such as the ActiveRecord
 connection check) to expand the robustness of the status checks. Adding a check
 will execute that check each time the status endpoint is requested, so be
-somewhat wary of doing _too_ much. See more in the adding checks section, below.
+somewhat wary of doing _too_ much. See more in the [Adding checks
+section](#adding-checks), below.
 
 Further, you can define your own checks which could be custom to your
 application or environment and report their own, unique errors.  The only
 requirement is that the check objects are callable (respond to `#call`, like a
-Proc). See more in the adding custom checks section, below.
+Proc). See more in the [Creating custom checks
+section](#creating-custom-checks), below.
 
 ### The endpoint
 
@@ -81,8 +83,8 @@ Hmm. Well... you just broke it.
 
 This gem ships with the following checks tested and packaged:
 
-* Codeschool::Status::ActiveRecordCheck - Performs a trivial test of the
-  current `ActiveRecord::Base.connection` to ensure basic database
+* **Codeschool::Status::Checks::ActiveRecordCheck** - Performs a trivial test
+  of the current `ActiveRecord::Base.connection` to ensure basic database
   connectivity.
 
 To add checks to your application, define the checks you'd like to run in your
@@ -93,7 +95,7 @@ environment or application configuration files or initializers, such as:
 Codeschool::Status::Checker.add_check(Codeschool::Status::Checks::ActiveRecordCheck)
 ```
 
-Or
+Or, make an environment specific check with:
 
 ```ruby
 # config/environments/production.rb
