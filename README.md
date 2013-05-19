@@ -38,6 +38,30 @@ And then execute:
 
 ## Usage
 
+Simply adding the gem requirement to your Gemfile is enough to install and
+automatically load and configure the gem. Technically speaking, the gem is a
+Rails Engine, so it auto-initializes with Rails starts up. There is no further
+configuration necessary.
+
+### The endpoint
+
+This gem provides a new, single endpoint in your application. Specifically, it
+creates a named `/status.json` route, with the "status" name. It does not match
+on any other format or variation, which isolates the pollution of your
+application routes.
+
+If you'd like to link to the status endpoint from within your application (why,
+I couldn't guess), you can use a standard Rails URL helper:
+
+```ruby
+link_to status_path
+```
+
+Were you already using the `/status.json` endpoint or the "status" route name?
+Hmm. Well... you just broke it.
+
+## Customization
+
 ### Customizing the revision
 
 If you need to customize the way in which the current application revision is
