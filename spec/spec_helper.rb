@@ -1,21 +1,12 @@
-require 'action_controller/railtie'
+require 'rubygems'
+require 'bundler/setup'
+require 'combustion'
 
-# Dir[File.expand_path('../support/**/*.rb', __FILE__)].each do |support|
-#   require support
-# end
+ENV["RAILS_ENV"] ||= 'test'
+Combustion.initialize! :action_controller
 
-
-require_relative "../lib/codeschool/status"
-
-module Codeschool
-  module Status
-    class Application < ::Rails::Application
-    end
-  end
-end
-
-Codeschool::Status::Application.initialize!
 require 'rspec/rails'
+require 'codeschool/status'
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
