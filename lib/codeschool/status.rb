@@ -8,5 +8,6 @@ module Codeschool
     autoload :Checker, 'codeschool/status/checker'
     autoload :Responder, 'codeschool/status/responder'
     autoload :Revision, 'codeschool/status/revision'
+    autoload :Serializer, 'codeschool/status/serializer'
   end
 end

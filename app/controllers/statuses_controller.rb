@@ -4,7 +4,7 @@ class StatusesController < ActionController::Base
 
   def show
     respond_with(Codeschool::Status::Checker.check, {
-      serializer: StatusSerializer
+      serializer: Codeschool::Status::Serializer
     })
   end
 end
