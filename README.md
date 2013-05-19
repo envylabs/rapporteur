@@ -1,5 +1,4 @@
-[![Build Status](https://magnum.travis-ci.com/codeschool/codeschool-status.png?token=U1RMnDeNpXqKyFsQVEWy&branch=concern_separation)](https://magnum.travis-ci.com/codeschool/codeschool-status)
-# Codeschool::Status
+# Codeschool::Status [![Build Status](https://magnum.travis-ci.com/codeschool/codeschool-status.png?token=U1RMnDeNpXqKyFsQVEWy&branch=concern_separation)](https://magnum.travis-ci.com/codeschool/codeschool-status)
 
 This gem provides a singular, status-checking endpoint to your application. The
 endpoint provides a JSON response with either an HTTP 200 or an HTTP 500
@@ -47,11 +46,13 @@ modifying the necessary environment file in your Rails application:
 # config/environments/production.rb
 
 MyApplication.configure do
-  ... config.settings ...
+  # ... config.settings ...
 
   config.to_prepare do
     Codeschool::Status::Revision.current = "revision123"
   end
+
+  # ... config.settings ...
 end
 ```
 
