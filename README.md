@@ -28,7 +28,17 @@ validations:
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Supported Ruby versions:
+
+* MRI 1.9.2
+* MRI 1.9.3
+
+Supported Rails versions:
+
+* Rails 3.1.x.
+* Rails 3.2.x.
+
+To install, add this line to your application's Gemfile:
 
     gem 'codeschool-status'
 
