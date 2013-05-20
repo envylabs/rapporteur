@@ -1,4 +1,8 @@
-# Rapporteur [![Build Status](https://travis-ci.org/codeschool/rapporteur.png?branch=master)](https://travis-ci.org/codeschool/rapporteur)
+# Rapporteur
+
+[![Gem Version](https://badge.fury.io/rb/rapporteur.png)](http://badge.fury.io/rb/rapporteur)
+[![Build Status](https://travis-ci.org/codeschool/rapporteur.png?branch=master)](https://travis-ci.org/codeschool/rapporteur)
+[![Code Climate](https://codeclimate.com/github/codeschool/rapporteur.png)](https://codeclimate.com/github/codeschool/rapporteur)
 
 This gem provides a singular, status-checking endpoint to your application. The
 endpoint provides a JSON response with either an HTTP 200 or an HTTP 500
