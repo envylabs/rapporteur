@@ -2,7 +2,7 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* No significant changes.
+* Improve the minimum runtime dependency version accuracy in the gemspec.
 
 ## 1.0.0 / 2013-05-19
 

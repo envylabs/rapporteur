@@ -18,14 +18,13 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'active_model_serializers', '>= 0.8'
-  spec.add_dependency 'railties', '~> 3.0'
+  spec.add_dependency 'active_model_serializers', '~> 0.7'
+  spec.add_dependency 'railties', '~> 3.1'
 
   spec.add_development_dependency "appraisal", "~> 0.5"
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "combustion", "~> 0.5"
   spec.add_development_dependency "rails", "~> 3.0"
-  spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec-rails", "~> 2.0"
   spec.add_development_dependency "sqlite3"
 end
