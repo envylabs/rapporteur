@@ -44,7 +44,6 @@ module Rapporteur
     #
     def self.clear
       instance.checks.clear
-      instance.messages.clear
       self
     end
 
