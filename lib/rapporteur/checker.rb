@@ -55,6 +55,7 @@ module Rapporteur
     # Returns a Rapporteur::Checker instance.
     #
     def self.run
+      instance.messages.clear
       instance.errors.clear
       instance.run
     end
@@ -77,6 +78,13 @@ module Rapporteur
     def add_error(message)
       errors.add(:base, message)
       self
+    end
+    
+    ##
+    # Adds message for inclusion in response.
+    #
+    def add_message(object)
+      messages << object if object.is_a?(Hash)
     end
 
     # Public: Returns the Set of checks currently configured.
@@ -104,9 +112,7 @@ module Rapporteur
     #
     def run
       checks.each do |object|
-        if result = object.call(self)
-          messages << result if result.is_a?(Hash)
-        end
+        add_message(object.call(self))
       end
       self
     end
