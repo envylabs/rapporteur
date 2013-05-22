@@ -66,3 +66,19 @@ RSpec::Matchers.define :include_status_error_message do |message|
     "expected #{@body.inspect} to not include a #{message.inspect} error message"
   end
 end
+
+RSpec::Matchers.define :include_status_message do |name, message|
+  match do |response|
+    @body = JSON.parse(response.body)
+    messages = @body.fetch('messages', {})
+    messages.has_key?(name) && messages.fetch(name) == message
+  end
+
+  failure_message_for_should do |actual|
+    "expected #{@body.inspect} to include a #{name.inspect}: #{message.inspect} message"
+  end
+
+  failure_message_for_should_not do |actual|
+    "expected #{@body.inspect} to not include a #{name.inspect}: #{message.inspect} message"
+  end
+end

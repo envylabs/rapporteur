@@ -78,22 +78,23 @@ module Rapporteur
       errors.add(:base, message)
       self
     end
-    
+
     ##
     # Public: Adds a status message for inclusion in the success response.
     #
-    # object - A Hash instance containing singular key-value pairs to be included in
-    #          the success response.
+    # name - A String containing the name or identifier for your message. This
+    #        is unique and may be overriden by other checks using the name
+    #        message name key.
+    # message - A String containing your desired message.
     #
     # Examples
     #
-    #   checker.add_message({repository: 'git@github.com/user/repo.git'})
+    #   checker.add_message(:repository, 'git@github.com/user/repo.git')
     #
     # Returns the Rapporteur::Checker instance.
     #
-    def add_message(object)
-      raise(ArgumentError, "Expected a Hash instance") unless object.kind_of?(Hash)
-      messages << object
+    def add_message(name, message)
+      messages[name] = message
       self
     end
 
@@ -102,11 +103,11 @@ module Rapporteur
     def checks
       @checks ||= Set.new
     end
-    
-    # Public: Returns the array of messages currently configured.
+
+    # Public: Returns the Hash of messages currently configured.
     #
     def messages
-      @messages ||= Set.new
+      @messages ||= Hash.new
     end
 
     # Public: Returns a String containing the current revision of the
