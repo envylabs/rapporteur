@@ -80,10 +80,21 @@ module Rapporteur
     end
     
     ##
-    # Adds message for inclusion in response.
+    # Public: Adds a status message for inclusion in the success response.
+    #
+    # object - A Hash instance containing singular key-value pairs to be included in
+    #          the success response.
+    #
+    # Examples
+    #
+    #   checker.add_message({repository: 'git@github.com/user/repo.git'})
+    #
+    # Returns the Rapporteur::Checker instance.
     #
     def add_message(object)
-      messages << object if object.is_a?(Hash)
+      raise(ArgumentError, "Expected a Hash instance") unless object.kind_of?(Hash)
+      messages << object
+      self
     end
 
     # Public: Returns the Set of checks currently configured.
@@ -111,7 +122,7 @@ module Rapporteur
     #
     def run
       checks.each do |object|
-        add_message(object.call(self))
+        object.call(self)
       end
       self
     end
