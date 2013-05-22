@@ -6,7 +6,8 @@ module Rapporteur
     self.root = false
 
     attributes :revision,
-               :time
+               :time,
+               :messages
 
     # Internal: Converts the checker instance time into UTC to provide a
     # consistent public representation.

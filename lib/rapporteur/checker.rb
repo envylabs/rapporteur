@@ -44,6 +44,7 @@ module Rapporteur
     #
     def self.clear
       instance.checks.clear
+      instance.messages.clear
       self
     end
 
@@ -83,6 +84,12 @@ module Rapporteur
     def checks
       @checks ||= Set.new
     end
+    
+    # Public: Returns the array of messages currently configured.
+    #
+    def messages
+      @messages ||= Set.new
+    end
 
     # Public: Returns a String containing the current revision of the
     # application.
@@ -97,7 +104,9 @@ module Rapporteur
     #
     def run
       checks.each do |object|
-        object.call(self)
+        if result = object.call(self)
+          messages << result if result.is_a?(Hash)
+        end
       end
       self
     end
