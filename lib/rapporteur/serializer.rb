@@ -17,5 +17,14 @@ module Rapporteur
     def time
       object.time.utc
     end
+
+    # Internal: Used by ActiveModel::Serializer to determine whether or not to
+    # include the messages attribute.
+    #
+    # Returns false if the messages are empty.
+    #
+    def include_messages?
+      !object.messages.empty?
+    end
   end
 end

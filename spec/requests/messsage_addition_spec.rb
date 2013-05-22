@@ -30,6 +30,8 @@ describe 'A status request with a check that modifies messages' do
     end
 
     context 'with no message-modifying checks' do
+      before { Rapporteur::Checker.clear }
+
       it_behaves_like 'a successful status response'
 
       it 'does not respond with a messages list' do
