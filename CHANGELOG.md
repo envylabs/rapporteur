@@ -2,7 +2,9 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* No significant changes.
+* Add the ability to define custom successful response messages via
+  add_message. This allows Check authors to relay automated information forward
+  to other external systems.
 
 ## [1.0.1][v1.0.1] / 2013-05-20
 
