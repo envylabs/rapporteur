@@ -85,11 +85,12 @@ module Rapporteur
     # name - A String containing the name or identifier for your message. This
     #        is unique and may be overriden by other checks using the name
     #        message name key.
-    # message - A String containing your desired message.
+    # message - A String or Numeric for the value of the message.
     #
     # Examples
     #
     #   checker.add_message(:repository, 'git@github.com/user/repo.git')
+    #   checker.add_message(:load, 0.934)
     #
     # Returns the Rapporteur::Checker instance.
     #
