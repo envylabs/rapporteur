@@ -132,6 +132,7 @@ happy with it, add an error to the given `checker` instance:
 
 my_proc_check = lambda { |checker|
   checker.add_error("You have bad luck!") if rand(10) > 5
+  checker.add_message(:luck, "good")
 }
 
 Rapporteur::Checker.add_check(my_proc_check)
