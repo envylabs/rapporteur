@@ -1,13 +1,11 @@
-require 'singleton'
 require 'set'
 
 module Rapporteur
-  # The center of the Rapporteur library, Checker manages holding and running
+  # The center of the Rapporteur library, CheckerClass manages holding and running
   # the custom checks, holding any application error messages, and provides the
   # controller with that data for rendering.
   #
-  class Checker
-    include Singleton
+  class CheckerClass
     include ActiveModel::Validations
 
 
@@ -28,9 +26,11 @@ module Rapporteur
     # Returns Rapporteur::Checker.
     # Raises ArgumentError if the given check does not respond to call.
     #
-    def self.add_check(object)
-      raise ArgumentError, "A check must respond to #call." unless object.respond_to?(:call)
-      instance.checks << object
+    def add_check(object)
+      unless object.respond_to?(:call)
+        raise ArgumentError, "A check must respond to #call."
+      end
+      @checks << object
       self
     end
 
@@ -41,8 +41,8 @@ module Rapporteur
     #
     # Returns Rapporteur::Checker.
     #
-    def self.clear
-      instance.checks.clear
+    def clear
+      @checks.clear
       self
     end
 
@@ -50,12 +50,15 @@ module Rapporteur
     # exercise the configured checker and collect any application errors or
     # data for rendering.
     #
-    # Returns a Rapporteur::Checker instance.
+    # Returns a Rapporteur::CheckerClass instance.
     #
-    def self.run
-      instance.messages.clear
-      instance.errors.clear
-      instance.run
+    def run
+      @messages.clear
+      errors.clear
+      @checks.each do |object|
+        object.call(self)
+      end
+      self
     end
 
 
@@ -71,7 +74,7 @@ module Rapporteur
     #   checker.add_error("You failed.")
     #   checker.add_error(:i18n_key_is_better)
     #
-    # Returns the Rapporteur::Checker instance.
+    # Returns the Rapporteur::CheckerClass instance.
     #
     def add_error(message)
       errors.add(:base, message)
@@ -91,31 +94,24 @@ module Rapporteur
     #   checker.add_message(:repository, 'git@github.com/user/repo.git')
     #   checker.add_message(:load, 0.934)
     #
-    # Returns the Rapporteur::Checker instance.
+    # Returns the Rapporteur::CheckerClass instance.
     #
     def add_message(name, message)
-      messages[name] = message
+      @messages[name] = message
       self
     end
 
     def as_json(args={})
-      messages.merge(:revision => revision, :time => time)
+      @messages.merge(:revision => revision, :time => time)
     end
 
-    # Public: Returns the Set of checks currently configured.
-    #
-    def checks
-      @checks ||= Set.new
-    end
-
-    # Public: Returns the Hash of messages currently configured.
-    #
-    def messages
-      @messages ||= Hash.new
+    def initialize
+      @checks = Set.new
+      @messages = Hash.new
     end
 
     def read_attribute_for_serialization(key)
-      messages[key]
+      @messages[key]
     end
 
     # Public: Returns a String containing the current revision of the
@@ -125,21 +121,12 @@ module Rapporteur
       Revision.current
     end
 
-    # Public: Executes the configured checks.
-    #
-    # Returns the Rapporteur::Checker instance.
-    #
-    def run
-      checks.each do |object|
-        object.call(self)
-      end
-      self
-    end
-
     # Public: Returns a Time instance containing the current system time.
     #
     def time
       Time.now.utc
     end
   end
+
+  Checker = CheckerClass.new
 end

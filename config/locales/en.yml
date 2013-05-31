@@ -2,7 +2,7 @@ en:
   activemodel:
     errors:
       models:
-        rapporteur/checker:
+        rapporteur/checker_class:
           attributes:
             base:
               database_unavailable: "The application database is inaccessible or unavailable"
