@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'A status request with a TimeCheck' do
   before do
-    Rapporteur::Checker.add_check(Rapporteur::Checks::TimeCheck)
+    Rapporteur.add_check(Rapporteur::Checks::TimeCheck)
   end
 
   subject { get(status_path) ; response }

@@ -15,5 +15,5 @@ RSpec.configure do |config|
 
   config.order = 'random'
 
-  config.before { Rapporteur::Checker.clear }
+  config.before { Rapporteur.clear_checks }
 end

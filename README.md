@@ -107,7 +107,7 @@ environment or application configuration files or initializers, such as:
 
 ```ruby
 # config/initializers/rapporteur.rb
-Rapporteur::Checker.add_check(Rapporteur::Checks::ActiveRecordCheck)
+Rapporteur.add_check(Rapporteur::Checks::ActiveRecordCheck)
 ```
 
 Or, make an environment specific check with:
@@ -116,7 +116,7 @@ Or, make an environment specific check with:
 # config/environments/production.rb
 MyApplication.configure do
   config.to_prepare do
-    Rapporteur::Checker.add_check(Rapporteur::Checks::ActiveRecordCheck)
+    Rapporteur.add_check(Rapporteur::Checks::ActiveRecordCheck)
   end
 end
 ```
@@ -131,7 +131,7 @@ happy with it, add an error to the given `checker` instance:
 ```ruby
 # config/initializers/rapporteur.rb
 
-Rapporteur::Checker.add_check do |checker|
+Rapporteur.add_check do |checker|
   checker.add_message(:paid, "too much")
 end
 
@@ -140,7 +140,7 @@ my_proc_check = lambda { |checker|
   checker.add_message(:luck, "good")
 }
 
-Rapporteur::Checker.add_check(my_proc_check)
+Rapporteur.add_check(my_proc_check)
 
 class MyClassCheck
   def self.call(checker)
@@ -149,7 +149,7 @@ class MyClassCheck
   end
 end
 
-Rapporteur::Checker.add_check(MyClassCheck)
+Rapporteur.add_check(MyClassCheck)
 ```
 
 Certainly, the definition and registration of the checks do not need to occur

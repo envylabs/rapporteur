@@ -3,6 +3,6 @@ class StatusesController < ActionController::Base
   respond_to :json
 
   def show
-    respond_with(Rapporteur::Checker.run)
+    respond_with(Rapporteur.run)
   end
 end

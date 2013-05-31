@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'A status request with an ActiveRecordCheck' do
   before do
-    Rapporteur::Checker.add_check(Rapporteur::Checks::ActiveRecordCheck)
+    Rapporteur.add_check(Rapporteur::Checks::ActiveRecordCheck)
   end
 
   subject { get(status_path) ; response }

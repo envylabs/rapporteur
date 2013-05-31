@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'A status request with a RevisionCheck' do
   before do
-    Rapporteur::Checker.add_check(Rapporteur::Checks::RevisionCheck)
+    Rapporteur.add_check(Rapporteur::Checks::RevisionCheck)
   end
 
   subject { get(status_path) ; response }

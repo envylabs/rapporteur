@@ -5,8 +5,7 @@ describe 'A status request with a check that modifies messages' do
 
   context 'creating a message with a block' do
     before do
-      Rapporteur::Checker.clear
-      Rapporteur::Checker.add_check { |checker| checker.add_message('git_repo', 'git@github.com:organization/repo.git') }
+      Rapporteur.add_check { |checker| checker.add_message('git_repo', 'git@github.com:organization/repo.git') }
     end
 
     context 'with an unerring response' do
@@ -19,7 +18,7 @@ describe 'A status request with a check that modifies messages' do
 
     context 'with an erring response' do
       before do
-        Rapporteur::Checker.add_check { |checker| checker.add_error(:base, 'failed') }
+        Rapporteur.add_check { |checker| checker.add_error(:base, 'failed') }
       end
 
       it_behaves_like 'an erred status response'
@@ -30,8 +29,6 @@ describe 'A status request with a check that modifies messages' do
     end
 
     context 'with no message-modifying checks' do
-      before { Rapporteur::Checker.clear }
-
       it_behaves_like 'a successful status response'
 
       it 'does not respond with a messages list' do

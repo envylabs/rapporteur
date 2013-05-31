@@ -20,6 +20,8 @@
 * Simplified the I18n scope to "rapporteur.errors.{attribute}.{key}". This
   means that Checker#add_error now takes at least 2 arguments, similarly to
   ActiveModel::Errors#add.
+* Added a facade for all Checker interaction. Clients should not use
+  Rapporteur::Checker.add_check et al, in favor of using Rapporteur.add_check.
 
 ## [1.1.0][v1.1.0] / 2013-05-30
 

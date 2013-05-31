@@ -1,19 +1,18 @@
 require 'set'
 
 module Rapporteur
-  # The center of the Rapporteur library, CheckerClass manages holding and running
+  # The center of the Rapporteur library, Checker manages holding and running
   # the custom checks, holding any application error messages, and provides the
   # controller with that data for rendering.
   #
-  class CheckerClass
+  class Checker
     include ActiveModel::Validations
 
 
-    def initialize(checks=[])
+    def initialize
       @messages = Hash.new
       @checks = Set.new
       reset
-      checks.each { |check| add_check(check) }
     end
 
 
@@ -27,11 +26,11 @@ module Rapporteur
     #
     # Examples
     #
-    #   Rapporteur::Checker.add_check { |checker|
+    #   Rapporteur.add_check { |checker|
     #     checker.add_error("Bad luck.") if rand(2) == 1
     #   }
     #
-    # Returns Rapporteur::Checker.
+    # Returns self.
     # Raises ArgumentError if the given check does not respond to call.
     #
     def add_check(object_or_nil_with_block=nil, &block)
@@ -50,7 +49,7 @@ module Rapporteur
     # checks but for one reason or another (environment constraint) need to
     # start from scratch.
     #
-    # Returns Rapporteur::Checker.
+    # Returns self.
     #
     def clear
       @checks.clear
@@ -74,7 +73,7 @@ module Rapporteur
     # exercise the configured checker and collect any application errors or
     # data for rendering.
     #
-    # Returns a Rapporteur::CheckerClass instance.
+    # Returns self.
     #
     def run
       reset
@@ -97,7 +96,7 @@ module Rapporteur
     #   checker.add_error("You failed.")
     #   checker.add_error(:i18n_key_is_better)
     #
-    # Returns the Rapporteur::CheckerClass instance.
+    # Returns self.
     #
     def add_error(key, message, options={})
       options[:scope] = [:rapporteur, :errors, key]
@@ -119,7 +118,7 @@ module Rapporteur
     #   checker.add_message(:repository, 'git@github.com/user/repo.git')
     #   checker.add_message(:load, 0.934)
     #
-    # Returns the Rapporteur::CheckerClass instance.
+    # Returns self.
     #
     def add_message(name, message)
       @messages[name] = message
@@ -153,9 +152,4 @@ module Rapporteur
       errors.clear
     end
   end
-
-  Checker = CheckerClass.new([
-    Checks::TimeCheck,
-    Checks::RevisionCheck
-  ])
 end

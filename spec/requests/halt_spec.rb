@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe 'A check calling #halt!' do
   before do
-    Rapporteur::Checker.add_check { |checker| checker.add_message(:one, 1) }
-    Rapporteur::Checker.add_check { |checker| checker.add_message(:two, 2).halt! }
-    Rapporteur::Checker.add_check { |checker| checker.add_message(:three, 3) }
+    Rapporteur.add_check { |checker| checker.add_message(:one, 1) }
+    Rapporteur.add_check { |checker| checker.add_message(:two, 2).halt! }
+    Rapporteur.add_check { |checker| checker.add_message(:three, 3) }
   end
 
   subject { get(status_path) ; JSON.parse(response.body) }
