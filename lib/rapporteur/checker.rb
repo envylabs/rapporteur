@@ -9,7 +9,6 @@ module Rapporteur
   class Checker
     include Singleton
     include ActiveModel::Validations
-    include ActiveModel::SerializerSupport
 
 
     # Public: Add a pre-built or custom check to your status endpoint. These
@@ -99,6 +98,10 @@ module Rapporteur
       self
     end
 
+    def as_json(args={})
+      messages.merge(:revision => revision, :time => time)
+    end
+
     # Public: Returns the Set of checks currently configured.
     #
     def checks
@@ -109,6 +112,10 @@ module Rapporteur
     #
     def messages
       @messages ||= Hash.new
+    end
+
+    def read_attribute_for_serialization(key)
+      messages[key]
     end
 
     # Public: Returns a String containing the current revision of the
@@ -132,7 +139,7 @@ module Rapporteur
     # Public: Returns a Time instance containing the current system time.
     #
     def time
-      Time.now
+      Time.now.utc
     end
   end
 end

@@ -18,7 +18,6 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'active_model_serializers', '~> 0.7'
   spec.add_dependency 'railties', '~> 3.1'
 
   spec.add_development_dependency "appraisal", "~> 0.5"
