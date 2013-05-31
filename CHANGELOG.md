@@ -2,6 +2,10 @@
 
 ## [HEAD][unreleased] / unreleased
 
+* No significant changes.
+
+## [2.0.0][v2.0.0] / 2013-05-31
+
 * Removed active_model_serializers dependency.
 * Extracted time and revision checks into Checks::TimeCheck and
   Checks::RevisionCheck, and applied them as the default checks.
@@ -39,6 +43,7 @@
 * Initial public release.
 
 
-[unreleased]: https://github.com/codeschool/rapporteur/compare/v1.1.0...master
+[unreleased]: https://github.com/codeschool/rapporteur/compare/v2.0.0...master
+[v2.0.0]: https://github.com/codeschool/rapporteur/compare/v1.1.0...v2.0.0
 [v1.1.0]: https://github.com/codeschool/rapporteur/compare/v1.0.1...v1.1.0
 [v1.0.1]: https://github.com/codeschool/rapporteur/compare/v1.0.0...v1.0.1
