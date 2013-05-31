@@ -17,6 +17,9 @@
   included at the top level of the hash.
 * It's now possible to remove all checks by calling Checker#clear. This
   includes the default TimeCheck and RevisionCheck checks.
+* Simplified the I18n scope to "rapporteur.errors.{attribute}.{key}". This
+  means that Checker#add_error now takes at least 2 arguments, similarly to
+  ActiveModel::Errors#add.
 
 ## [1.1.0][v1.1.0] / 2013-05-30
 

@@ -99,8 +99,10 @@ module Rapporteur
     #
     # Returns the Rapporteur::CheckerClass instance.
     #
-    def add_error(message, options={})
-      errors.add(:base, message, options)
+    def add_error(key, message, options={})
+      options[:scope] = [:rapporteur, :errors, key]
+      options[:default] = [message, message.to_s.humanize]
+      errors.add(key, message, options)
       self
     end
 
@@ -138,6 +140,8 @@ module Rapporteur
     def read_attribute_for_serialization(key)
       @messages[key]
     end
+
+    alias read_attribute_for_validation read_attribute_for_serialization
 
 
     private

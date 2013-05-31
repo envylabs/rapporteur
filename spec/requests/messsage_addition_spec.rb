@@ -19,7 +19,7 @@ describe 'A status request with a check that modifies messages' do
 
     context 'with an erring response' do
       before do
-        Rapporteur::Checker.add_check { |checker| checker.add_error('failed') }
+        Rapporteur::Checker.add_check { |checker| checker.add_error(:base, 'failed') }
       end
 
       it_behaves_like 'an erred status response'

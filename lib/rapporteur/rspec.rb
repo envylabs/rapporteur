@@ -41,18 +41,18 @@ shared_examples_for 'an erred status response' do
   end
 end
 
-RSpec::Matchers.define :include_status_error_message do |message|
+RSpec::Matchers.define :include_status_error_message do |attribute, message|
   match do |response|
     @body = JSON.parse(response.body)
-    @body.fetch('errors', {}).fetch('base').include?(message)
+    @body.fetch('errors', {}).fetch(attribute.to_s).include?(message)
   end
 
   failure_message_for_should do |actual|
-    "expected #{@body.inspect} to include a #{message.inspect} error message"
+    "expected #{@body.inspect} to include a #{attribute}:#{message.inspect} error message"
   end
 
   failure_message_for_should_not do |actual|
-    "expected #{@body.inspect} to not include a #{message.inspect} error message"
+    "expected #{@body.inspect} to not include a #{attribute}:#{message.inspect} error message"
   end
 end
 

@@ -20,7 +20,7 @@ describe 'A status request with an ActiveRecordCheck' do
     it_behaves_like 'an erred status response'
 
     it 'contains a message regarding the database failure' do
-      expect(subject).to include_status_error_message(I18n.t('activemodel.errors.models.rapporteur/checker_class.attributes.base.database_unavailable'))
+      expect(subject).to include_status_error_message(:database, I18n.t('rapporteur.errors.database.unavailable'))
     end
   end
 end
