@@ -131,6 +131,10 @@ happy with it, add an error to the given `checker` instance:
 ```ruby
 # config/initializers/rapporteur.rb
 
+Rapporteur::Checker.add_check do |checker|
+  checker.add_message(:paid, "too much")
+end
+
 my_proc_check = lambda { |checker|
   checker.add_error("You have bad luck!") if rand(10) > 5
   checker.add_message(:luck, "good")

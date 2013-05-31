@@ -19,17 +19,6 @@ shared_examples_for 'a successful status response' do
     it 'does not contain errors' do
       expect(subject).not_to(have_key('errors'))
     end
-
-    it 'contains the current application revision' do
-      expect(subject.fetch('revision')).to(match(/^[a-f0-9]{40}$/))
-    end
-
-    it 'contains the current time in ISO8601' do
-      time = Time.now
-      Time.stub(:now).and_return(time)
-      expect(subject.fetch('time')).to(match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/))
-      expect(subject.fetch('time')).to(eq(time.utc.iso8601))
-    end
   end
 end
 

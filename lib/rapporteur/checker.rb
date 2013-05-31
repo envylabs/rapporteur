@@ -19,18 +19,21 @@ module Rapporteur
     #
     # Examples
     #
-    #   Rapporteur::Checker.add_check(lambda { |checker|
+    #   Rapporteur::Checker.add_check { |checker|
     #     checker.add_error("Bad luck.") if rand(2) == 1
-    #   })
+    #   }
     #
     # Returns Rapporteur::Checker.
     # Raises ArgumentError if the given check does not respond to call.
     #
-    def add_check(object)
-      unless object.respond_to?(:call)
+    def add_check(object_or_nil_with_block=nil, &block)
+      if block_given?
+        @checks << block
+      elsif object_or_nil_with_block.respond_to?(:call)
+        @checks << object_or_nil_with_block
+      else
         raise ArgumentError, "A check must respond to #call."
       end
-      @checks << object
       self
     end
 
@@ -76,8 +79,8 @@ module Rapporteur
     #
     # Returns the Rapporteur::CheckerClass instance.
     #
-    def add_error(message)
-      errors.add(:base, message)
+    def add_error(message, options={})
+      errors.add(:base, message, options)
       self
     end
 
@@ -102,31 +105,22 @@ module Rapporteur
     end
 
     def as_json(args={})
-      @messages.merge(:revision => revision, :time => time)
+      @messages
     end
 
-    def initialize
-      @checks = Set.new
+    def initialize(checks=[])
       @messages = Hash.new
+      @checks = Set.new
+      checks.each { |check| add_check(check) }
     end
 
     def read_attribute_for_serialization(key)
       @messages[key]
     end
-
-    # Public: Returns a String containing the current revision of the
-    # application.
-    #
-    def revision
-      Revision.current
-    end
-
-    # Public: Returns a Time instance containing the current system time.
-    #
-    def time
-      Time.now.utc
-    end
   end
 
-  Checker = CheckerClass.new
+  Checker = CheckerClass.new([
+    Checks::TimeCheck,
+    Checks::RevisionCheck
+  ])
 end
