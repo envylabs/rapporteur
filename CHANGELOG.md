@@ -8,6 +8,8 @@
 * Updated Checker#add_error to allow for I18n interpolated values.
 * Updated Checker#add_check to take a block in addition to a lambda or object
   that responds to #call.
+* Added Checker#halt! which checks can call to short-circuit processing of any
+  further checks.
 
 ### :boom: Backward incompatible changes
 

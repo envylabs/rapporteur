@@ -9,6 +9,14 @@ module Rapporteur
     include ActiveModel::Validations
 
 
+    def initialize(checks=[])
+      @messages = Hash.new
+      @checks = Set.new
+      reset
+      checks.each { |check| add_check(check) }
+    end
+
+
     # Public: Add a pre-built or custom check to your status endpoint. These
     # checks are used to test the state of the world of the application, and
     # need only respond to `#call`.
@@ -49,6 +57,19 @@ module Rapporteur
       self
     end
 
+    ##
+    # Public: Checks can call this method to halt any further processing. This
+    # is useful for critical or fatal check failures.
+    #
+    # For example, if load is too high on a machine you may not want to run any
+    # other checks.
+    #
+    # Returns true.
+    #
+    def halt!
+      @halted = true
+    end
+
     # Public: This is the primary execution point for this class. Use run to
     # exercise the configured checker and collect any application errors or
     # data for rendering.
@@ -56,14 +77,13 @@ module Rapporteur
     # Returns a Rapporteur::CheckerClass instance.
     #
     def run
-      @messages.clear
-      errors.clear
+      reset
       @checks.each do |object|
         object.call(self)
+        break if @halted
       end
       self
     end
-
 
     # Public: Add an error message to the checker in order to have it rendered
     # in the status request.
@@ -104,18 +124,29 @@ module Rapporteur
       self
     end
 
+    ##
+    # Internal: Returns a hash of messages suitable for conversion into JSON.
+    #
     def as_json(args={})
       @messages
     end
 
-    def initialize(checks=[])
-      @messages = Hash.new
-      @checks = Set.new
-      checks.each { |check| add_check(check) }
-    end
-
+    ##
+    # Internal: Used by Rails' JSON serialization, specifically in
+    # ActionController::Responder.
+    #
     def read_attribute_for_serialization(key)
       @messages[key]
+    end
+
+
+    private
+
+
+    def reset
+      @halted = false
+      @messages.clear
+      errors.clear
     end
   end
 
