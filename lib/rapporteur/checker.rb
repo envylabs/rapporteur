@@ -7,6 +7,7 @@ module Rapporteur
   #
   class Checker
     include ActiveModel::Validations
+    extend CheckerDeprecations
 
 
     def initialize

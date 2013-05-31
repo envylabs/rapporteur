@@ -6,6 +6,7 @@ require "rapporteur/version"
 #
 module Rapporteur
   autoload :Checker, 'rapporteur/checker'
+  autoload :CheckerDeprecations, 'rapporteur/checker_deprecations'
   autoload :Checks, 'rapporteur/checks'
   autoload :Responder, 'rapporteur/responder'
   autoload :Revision, 'rapporteur/revision'
@@ -38,8 +39,8 @@ module Rapporteur
   def self.checker
     unless @checker
       @checker = Checker.new
-      @checker.add_check(Checks::RevisionCheck)
-      @checker.add_check(Checks::TimeCheck)
+      add_check(Checks::RevisionCheck)
+      add_check(Checks::TimeCheck)
     end
     @checker
   end
