@@ -2,7 +2,7 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* No significant changes.
+* Fix deprecation notice for Checker.clear.
 
 ## [2.0.1][v2.0.1] / 2013-05-31
 

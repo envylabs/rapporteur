@@ -8,7 +8,7 @@ module Rapporteur
     end
 
     def clear
-      ActiveSupport::Deprecation.warn("use Rapporteur.clear", caller)
+      ActiveSupport::Deprecation.warn("use Rapporteur.clear_checks", caller)
       Rapporteur.clear_checks
     end
 
