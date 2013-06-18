@@ -3,7 +3,7 @@ rvm:
   - 1.9.2
   - 1.9.3
   - 2.0.0
-  - jruby
+  - jruby-19mode
 gemfile:
   - gemfiles/rails3.1.gemfile
   - gemfiles/rails3.2.gemfile
