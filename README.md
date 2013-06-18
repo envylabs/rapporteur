@@ -46,11 +46,15 @@ Supported Rails versions:
 
 To install, add this line to your application's Gemfile:
 
-    gem 'rapporteur'
+```ruby
+gem 'rapporteur'
+```
 
 And then execute:
 
-    $ bundle
+```bash
+$ bundle
+```
 
 ## Usage
 
