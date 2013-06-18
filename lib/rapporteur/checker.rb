@@ -28,7 +28,7 @@ module Rapporteur
     # Examples
     #
     #   Rapporteur.add_check { |checker|
-    #     checker.add_error("Bad luck.") if rand(2) == 1
+    #     checker.add_error(:luck, :bad) if rand(2) == 1
     #   }
     #
     # Returns self.
@@ -89,13 +89,19 @@ module Rapporteur
     # in the status request.
     #
     # It is suggested that you use I18n and locale files for these messages, as
-    # is done with the pre-built checks. If you're using I19n, you'll need to
-    # define `activemodel.errors.models.rapporteur/checker.attributes.base.<your key>`.
+    # is done with the pre-built checks. If you're using I18n, you'll need to
+    # define `rapporteur.errors.<your key>.<your message>`.
     #
     # Examples
     #
-    #   checker.add_error("You failed.")
-    #   checker.add_error(:i18n_key_is_better)
+    #   checker.add_error(:you, "failed.")
+    #   checker.add_error(:using, :i18n_key_is_better)
+    #
+    #   en:
+    #     rapporteur:
+    #       errors:
+    #         using:
+    #           i18n_key_is_better: 'Look, localization!'
     #
     # Returns self.
     #

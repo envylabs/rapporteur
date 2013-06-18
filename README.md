@@ -25,7 +25,7 @@ validations:
 ```json
 {
   "errors": {
-    "base": ["The application database is inaccessible or unavailable"]
+    "database": ["The application database is inaccessible or unavailable"]
   }
 }
 ```
@@ -136,8 +136,8 @@ Rapporteur.add_check do |checker|
 end
 
 my_proc_check = lambda { |checker|
-  checker.add_error("You have bad luck!") if rand(10) > 5
-  checker.add_message(:luck, "good")
+  checker.add_error(:luck, :bad) if rand(2) > 0
+  checker.add_message(:luck, :good)
 }
 
 Rapporteur.add_check(my_proc_check)
@@ -145,7 +145,7 @@ Rapporteur.add_check(my_proc_check)
 class MyClassCheck
   def self.call(checker)
     @@counter ||= 0
-    checker.add_error("Stop calling me!!") if @@counter > 50
+    checker.add_error(:count, :exceeded) if @@counter > 50
   end
 end
 
@@ -211,13 +211,10 @@ For example, to override the database check failure message:
 
 ```yaml
 en:
-  activemodel:
+  rapporteur:
     errors:
-      models:
-        rapporteur/checker:
-          attributes:
-            base:
-              database_unavailable: "Something went wrong"
+      database:
+        unavailable: "Something went wrong"
 ```
 
 ## Contributing
