@@ -1,4 +1,4 @@
-# Rapporteur
+# Rapporteur (rap-or-TUHR)
 
 [![Gem Version](https://badge.fury.io/rb/rapporteur.png)](http://badge.fury.io/rb/rapporteur)
 [![Build Status](https://travis-ci.org/codeschool/rapporteur.png?branch=master)](https://travis-ci.org/codeschool/rapporteur)
