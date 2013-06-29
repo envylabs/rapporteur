@@ -36,9 +36,9 @@ module Rapporteur
     #
     def add_check(object_or_nil_with_block=nil, &block)
       if block_given?
-        @checks << block
+        @checks.add(block)
       elsif object_or_nil_with_block.respond_to?(:call)
-        @checks << object_or_nil_with_block
+        @checks.add(object_or_nil_with_block)
       else
         raise ArgumentError, "A check must respond to #call."
       end
