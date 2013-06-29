@@ -32,6 +32,20 @@ validations:
 
 ## Installation
 
+To install, add this line to your application's Gemfile:
+
+```ruby
+gem 'rapporteur'
+```
+
+And then execute:
+
+```bash
+$ bundle install
+```
+
+### Supported environments
+
 Supported Ruby versions:
 
 * MRI 2.0.0
@@ -44,18 +58,6 @@ Supported Rails versions:
 * Rails 4.0.x.
 * Rails 3.2.x.
 * Rails 3.1.x.
-
-To install, add this line to your application's Gemfile:
-
-```ruby
-gem 'rapporteur'
-```
-
-And then execute:
-
-```bash
-$ bundle
-```
 
 ## Usage
 
