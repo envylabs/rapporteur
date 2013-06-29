@@ -2,6 +2,10 @@
 
 ## [HEAD][unreleased] / unreleased
 
+* No significant changes.
+
+## [2.1.0][v2.1.0] / 2013-06-28
+
 * Update the gemspec to allow for Rails 4.0 environments.
 * Update the packaged Responder to properly handle Rails 4.0.
 * Fix deprecation notice for Checker.clear.
@@ -49,7 +53,8 @@
 * Initial public release.
 
 
-[unreleased]: https://github.com/codeschool/rapporteur/compare/v2.0.1...master
+[unreleased]: https://github.com/codeschool/rapporteur/compare/v2.1.0...master
+[v2.1.0]: https://github.com/codeschool/rapporteur/compare/v2.0.1...v2.1.0
 [v2.0.1]: https://github.com/codeschool/rapporteur/compare/v2.0.0...v2.0.1
 [v2.0.0]: https://github.com/codeschool/rapporteur/compare/v1.1.0...v2.0.0
 [v1.1.0]: https://github.com/codeschool/rapporteur/compare/v1.0.1...v1.1.0
