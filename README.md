@@ -41,8 +41,9 @@ Supported Ruby versions:
 
 Supported Rails versions:
 
-* Rails 3.1.x.
+* Rails 4.0.x.
 * Rails 3.2.x.
+* Rails 3.1.x.
 
 To install, add this line to your application's Gemfile:
 
