@@ -23,7 +23,7 @@ module Rapporteur
       def display_errors
         controller.render format => {errors: resource.errors}, status: :internal_server_error
       end
-    elsif Rails::VERSION::MAJOR == 3 && Rails::VERSION::MINOR == 2
+    else
       def display_errors
         controller.render format => resource_errors, status: :internal_server_error
       end

@@ -2,6 +2,8 @@
 
 ## [HEAD][unreleased] / unreleased
 
+* Update the gemspec to allow for Rails 4.0 environments.
+* Update the packaged Responder to properly handle Rails 4.0.
 * Fix deprecation notice for Checker.clear.
 
 ## [2.0.1][v2.0.1] / 2013-05-31
