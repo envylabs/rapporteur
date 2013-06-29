@@ -34,9 +34,9 @@ validations:
 
 Supported Ruby versions:
 
-* MRI 1.9.2
-* MRI 1.9.3
 * MRI 2.0.0
+* MRI 1.9.3
+* MRI 1.9.2
 * JRuby 1.7.4
 
 Supported Rails versions:
