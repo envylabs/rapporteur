@@ -137,24 +137,25 @@ happy with it, add an error to the given `checker` instance:
 ```ruby
 # config/initializers/rapporteur.rb
 
+# Define a simple check as a block:
 Rapporteur.add_check do |checker|
   checker.add_message(:paid, "too much")
 end
 
+# Make and use a reusable Proc or lambda:
 my_proc_check = lambda { |checker|
   checker.add_error(:luck, :bad) if rand(2) > 0
   checker.add_message(:luck, :good)
 }
-
 Rapporteur.add_check(my_proc_check)
 
+# Package a check into a Class:
 class MyClassCheck
   def self.call(checker)
     @@counter ||= 0
     checker.add_error(:count, :exceeded) if @@counter > 50
   end
 end
-
 Rapporteur.add_check(MyClassCheck)
 ```
 
