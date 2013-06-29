@@ -200,7 +200,7 @@ Rapporteur::Revision.current = Rails.root.join("REVISION").read.strip
 # Force a particular directory and use Git
 Rapporteur::Revision.current = `cd "#{Rails.root}" && git rev-parse HEAD`.strip
 
-# Use an ENV variable (Heroku)
+# Use an ENV variable (Heroku Bamboo Stack)
 Rapporteur::Revision.current = ENV["REVISION"]
 
 # Do some crazy calculation
