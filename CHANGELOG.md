@@ -2,7 +2,8 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* No significant changes.
+* Upgrade Combustion development support gem to fix deprecations in Rails 4.0.
+* Use Ruby 1.8-compatible hash syntax.
 
 ## [2.1.0][v2.1.0] / 2013-06-28
 

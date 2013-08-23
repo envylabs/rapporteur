@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "appraisal", "~> 0.5"
   spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "combustion", "~> 0.5"
+  spec.add_development_dependency "combustion", "~> 0.5", ">= 0.5.1"
   spec.add_development_dependency "rails", ">= 3.1", "< 4.1"
   spec.add_development_dependency "rspec-rails", "~> 2.11"
 end
