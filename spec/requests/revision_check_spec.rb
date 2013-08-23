@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe 'A status request with a RevisionCheck' do
   before do
+    Rapporteur::Revision.stub(:current) { 'revisionidentifier' }
     Rapporteur.add_check(Rapporteur::Checks::RevisionCheck)
   end
 
@@ -10,10 +11,8 @@ describe 'A status request with a RevisionCheck' do
   it_behaves_like 'a successful status response'
 
   context 'the response payload' do
-    subject { get(status_path) ; JSON.parse(response.body) }
-
     it 'contains the current application revision' do
-      expect(subject.fetch('revision')).to(match(/^[a-f0-9]{40}$/))
+      expect(subject).to include_status_message('revision', 'revisionidentifier')
     end
   end
 end

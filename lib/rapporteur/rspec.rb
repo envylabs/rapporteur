@@ -59,7 +59,7 @@ end
 RSpec::Matchers.define :include_status_message do |name, message|
   match do |response|
     @body = JSON.parse(response.body)
-    @body.has_key?(name) && @body.fetch(name) == message
+    @body.has_key?(name) && @body.fetch(name).include?(message)
   end
 
   failure_message_for_should do |actual|

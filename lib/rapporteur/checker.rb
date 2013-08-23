@@ -6,12 +6,12 @@ module Rapporteur
   # controller with that data for rendering.
   #
   class Checker
-    include ActiveModel::Validations
     extend CheckerDeprecations
 
 
     def initialize
-      @messages = Hash.new
+      @messages = MessageList.new(:messages)
+      @errors = MessageList.new(:errors)
       @checks = Set.new
       reset
     end
@@ -106,9 +106,7 @@ module Rapporteur
     # Returns self.
     #
     def add_error(key, message, options={})
-      options[:scope] = [:rapporteur, :errors, key]
-      options[:default] = [message, message.to_s.humanize]
-      errors.add(key, message, options)
+      @errors.add(key, message)
       self
     end
 
@@ -128,7 +126,7 @@ module Rapporteur
     # Returns self.
     #
     def add_message(name, message)
-      @messages[name] = message
+      @messages.add(name, message)
       self
     end
 
@@ -136,7 +134,14 @@ module Rapporteur
     # Internal: Returns a hash of messages suitable for conversion into JSON.
     #
     def as_json(args={})
-      @messages
+      @messages.to_hash
+    end
+
+    ##
+    # Internal: Used by Rails' JSON serialization to render error messages.
+    #
+    def errors
+      @errors
     end
 
     ##
@@ -156,7 +161,7 @@ module Rapporteur
     def reset
       @halted = false
       @messages.clear
-      errors.clear
+      @errors.clear
     end
   end
 end

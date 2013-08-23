@@ -4,6 +4,15 @@
 
 * Upgrade Combustion development support gem to fix deprecations in Rails 4.0.
 * Use Ruby 1.8-compatible hash syntax.
+* Update message and error handling to allow for both I18n/Proc/String support
+  for both types of messages, by replacing ActiveModel::Errors with a local
+  message list.
+
+### :boom: Backward incompatible changes
+
+* Attributes may now have multiple success messages bound to them for
+  reporting. This means that there are now, possibly, more than one message per
+  key.
 
 ## [2.1.0][v2.1.0] / 2013-06-28
 
