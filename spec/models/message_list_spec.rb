@@ -6,6 +6,10 @@ describe Rapporteur::MessageList do
   before { I18n.backend.reload! }
 
   context '#add' do
+    it 'returns the MessageList instance.' do
+      expect(list.add(:test, 'message')).to equal(list)
+    end
+
     it 'adds a String message to the #full_messages' do
       list.add(:test, 'message')
       expect(list.full_messages).to include('test message')
