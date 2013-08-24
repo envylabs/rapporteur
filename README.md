@@ -210,21 +210,42 @@ Rapporteur::Revision.current = ENV["REVISION"]
 Rapporteur::Revision.current = lambda { MyRevisionCalculator.execute! }
 ```
 
-### Customizing the error messages
+### Customizing the messages
 
-The error messages displayed in the event that application validations fail are
-all collected through I18n. There are default localization strings provided
-with the gem, but you may override them as necessary, simply by redefining them
-in a locales file within your local application.
+The success and error messages displayed in the event that application
+validations pass or fail are all optionally passed through I18n. There are
+default localization strings provided with the gem, but you may override them
+as necessary, by simply redefining the proper locale keys in a locale file
+within your local application.
 
 For example, to override the database check failure message:
 
 ```yaml
+# /config/locales/en.yml
 en:
   rapporteur:
     errors:
       database:
         unavailable: "Something went wrong"
+```
+
+If you created a custom checker which reports the current sky color, for
+example, and wanted the success messages to be localized, you could do the
+following:
+
+```ruby
+# /config/initializers/rapporteur.rb
+sky_check = lambda { |checker| checker.add_message(:sky, :blue) }
+Rapporteur.add_check(sky_check)
+```
+
+```yaml
+# /config/locales/fr.yml
+fr:
+  rapporteur:
+    messages:
+      sky:
+        blue: "bleu"
 ```
 
 ## Contributing
