@@ -90,21 +90,34 @@ module Rapporteur
     # is done with the pre-built checks. If you're using I18n, you'll need to
     # define `rapporteur.errors.<your key>.<your message>`.
     #
+    # name - A Symbol which indicates the attribute, name, or other identifier
+    #        for the check being run.
+    # message - A String/Symbol/Proc to identify the message to provide in a
+    #           check failure situation.
+    #
+    #           A String is presented as given.
+    #           A Symbol will attempt to translate through I18n or default to the String-form of the symbol.
+    #           A Proc which will be called and the return value will be presented as returned.
+    # i18n_options - A Hash of options (likely variable key/value pairs) to
+    #                pass to I18n during translation.
+    #
     # Examples
     #
     #   checker.add_error(:you, "failed.")
     #   checker.add_error(:using, :i18n_key_is_better)
+    #   checker.add_error(:using, :i18n_with_variable, :custom_variable => 'pizza')
     #
     #   en:
     #     rapporteur:
     #       errors:
     #         using:
     #           i18n_key_is_better: 'Look, localization!'
+    #           i18n_with_variable: 'Look, %{custom_variable}!'
     #
     # Returns self.
     #
-    def add_error(key, message, options={})
-      @errors.add(key, message)
+    def add_error(name, message, i18n_options={})
+      @errors.add(name, message, i18n_options)
       self
     end
 
@@ -114,17 +127,24 @@ module Rapporteur
     # name - A String containing the name or identifier for your message. This
     #        is unique and may be overriden by other checks using the name
     #        message name key.
-    # message - A String or Numeric for the value of the message.
+    #
+    # message - A String/Symbol/Proc containing the message to present to the
+    #           user in a successful check sitaution.
+    #
+    #           A String is presented as given.
+    #           A Symbol will attempt to translate through I18n or default to the String-form of the symbol.
+    #           A Proc which will be called and the return value will be presented as returned.
     #
     # Examples
     #
     #   checker.add_message(:repository, 'git@github.com/user/repo.git')
     #   checker.add_message(:load, 0.934)
+    #   checker.add_message(:load, :too_high, :measurement => '0.934')
     #
     # Returns self.
     #
-    def add_message(name, message)
-      @messages.add(name, message)
+    def add_message(name, message, i18n_options={})
+      @messages.add(name, message, i18n_options)
       self
     end
 

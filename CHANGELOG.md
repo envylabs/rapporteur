@@ -2,7 +2,8 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* No significant changes.
+* Add back missing support for I18n interpolated values which was lost with the
+  customized message lists.
 
 ## [3.0.0][v3.0.0] / 2013-08-23
 

@@ -33,6 +33,12 @@ describe Rapporteur::MessageList do
       expect(list.full_messages).to include('test translated')
     end
 
+    it 'translates and adds recognized I18n keys with named parameters in the #full_messages' do
+      add_translation(:errors, :test, :i18n_message, 'translated %{language}')
+      list.add(:test, :i18n_message, :language => 'French')
+      expect(list.full_messages).to include('test translated French')
+    end
+
     it 'translates based on the initialized list type' do
       add_translation(:string, :test, :i18n_message, 'strings')
       add_translation(:messages, :test, :i18n_message, 'messages')

@@ -45,17 +45,20 @@ module Rapporteur
     #
     #           If a Proc is given, it is `.call`'d with no parameters. The
     #           return value from the Proc is directly used for the message.
+    # i18n_options - A Hash of optional key/value pairs to pass to the I18n
+    #                translator.
     #
     # Examples
     #
     #     list.add(:time, '2013-08-23T12:34:00Z')
     #     list.add(:time, :too_late)
+    #     list.add(:time, :too_late, :time => 'midnight')
     #     list.add(:time, lambda { Time.now.iso8601 })
     #
     # Returns the MessageList instance.
     #
-    def add(attribute, message)
-      @messages[attribute.to_sym].add(normalize_message(attribute, message))
+    def add(attribute, message, i18n_options = {})
+      @messages[attribute.to_sym].add(normalize_message(attribute, message, i18n_options))
       self
     end
 
@@ -108,17 +111,17 @@ module Rapporteur
     private
 
 
-    def generate_message(key, type)
-      I18n.translate(type, {
+    def generate_message(key, type, i18n_options)
+      I18n.translate(type, i18n_options.merge({
         :default => [type, type.to_s],
         :scope => [:rapporteur, @list_type, key]
-      })
+      }))
     end
 
-    def normalize_message(attribute, message)
+    def normalize_message(attribute, message, i18n_options)
       case message
       when Symbol
-        generate_message(attribute, message)
+        generate_message(attribute, message, i18n_options)
       when Proc
         message.call
       else
