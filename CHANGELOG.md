@@ -2,6 +2,10 @@
 
 ## [HEAD][unreleased] / unreleased
 
+* No significant changes.
+
+## [3.0.1][v3.0.1] / 2013-08-23
+
 * Add back missing support for I18n interpolated values which was lost with the
   customized message lists.
 
@@ -73,7 +77,8 @@
 * Initial public release.
 
 
-[unreleased]: https://github.com/codeschool/rapporteur/compare/v3.0.0...master
+[unreleased]: https://github.com/codeschool/rapporteur/compare/v3.0.1...master
+[v3.0.1]: https://github.com/codeschool/rapporteur/compare/v3.0.0...v3.0.1
 [v3.0.0]: https://github.com/codeschool/rapporteur/compare/v2.1.0...v3.0.0
 [v2.1.0]: https://github.com/codeschool/rapporteur/compare/v2.0.1...v2.1.0
 [v2.0.1]: https://github.com/codeschool/rapporteur/compare/v2.0.0...v2.0.1
