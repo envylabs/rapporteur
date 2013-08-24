@@ -79,7 +79,8 @@ module Rapporteur
     end
 
     # Public: Returns the added attributes and their messages as a Hash, keyed
-    # by the attribute, with an Array containing all of the added messages.
+    # by the attribute, with either an Array containing all of the added
+    # messages or just the single attribute message.
     #
     # Examples
     #
@@ -87,12 +88,20 @@ module Rapporteur
     #     list.add(:time, 'is valuable')
     #     list.add(:day, 'is today')
     #     list.full_messages
-    #     # => {:time => ["is now", "is valuable"], :day => ["is today"]}
+    #     # => {:time => ["is now", "is valuable"], :day => "is today"}
     #
     # Returns a Hash instance.
     #
     def to_hash
-      @messages.dup
+      hash = Hash.new
+      @messages.each_pair do |key, value|
+        if value.size == 1
+          hash[key] = value.first
+        else
+          hash[key] = value.to_a
+        end
+      end
+      hash
     end
 
 

@@ -48,6 +48,27 @@ describe Rapporteur::MessageList do
     end
   end
 
+  context '#to_hash' do
+    it 'flattens key/value pairs with only one value' do
+      list.add(:test, 'message')
+      expect(list.to_hash).to eq({:test => 'message'})
+    end
+
+    it 'retains multiple values for a single key' do
+      list.add(:test, 'message1')
+      list.add(:test, 'message2')
+      expect(list.to_hash).to eq({:test => ['message1', 'message2']})
+    end
+
+    it 'returns a new, unique, but equivalent Hash with each call' do
+      list.add(:test, 'message')
+      return1 = list.to_hash
+      return2 = list.to_hash
+      expect(return1).not_to equal(return2)
+      expect(return1).to eq(return2)
+    end
+  end
+
 
   private
 
