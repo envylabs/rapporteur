@@ -2,6 +2,10 @@
 
 ## [HEAD][unreleased] / unreleased
 
+* No significant changes.
+
+## [3.0.0][v3.0.0] / 2013-08-23
+
 * Fix/add Ruby 1.8 compatibility. Because this library was built to work with
   Rails 3.1 and 3.2 (as well as 4.0), not supporting Ruby 1.8 was dishonest.
   That has now been rectified.
