@@ -57,7 +57,10 @@ describe Rapporteur::MessageList do
     it 'retains multiple values for a single key' do
       list.add(:test, 'message1')
       list.add(:test, 'message2')
-      expect(list.to_hash).to eq({:test => ['message1', 'message2']})
+      result = list.to_hash
+      expect(result).to have_key(:test)
+      expect(result[:test]).to include('message1')
+      expect(result[:test]).to include('message2')
     end
 
     it 'returns a new, unique, but equivalent Hash with each call' do
