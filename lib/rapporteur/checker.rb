@@ -1,5 +1,3 @@
-require 'set'
-
 module Rapporteur
   # The center of the Rapporteur library, Checker manages holding and running
   # the custom checks, holding any application error messages, and provides the
@@ -12,7 +10,7 @@ module Rapporteur
     def initialize
       @messages = MessageList.new(:messages)
       @errors = MessageList.new(:errors)
-      @checks = Set.new
+      @check_list = CheckList.new
       reset
     end
 
@@ -36,9 +34,9 @@ module Rapporteur
     #
     def add_check(object_or_nil_with_block=nil, &block)
       if block_given?
-        @checks.add(block)
+        @check_list.add(block)
       elsif object_or_nil_with_block.respond_to?(:call)
-        @checks.add(object_or_nil_with_block)
+        @check_list.add(object_or_nil_with_block)
       else
         raise ArgumentError, "A check must respond to #call."
       end
@@ -53,7 +51,7 @@ module Rapporteur
     # Returns self.
     #
     def clear
-      @checks.clear
+      @check_list.clear
       self
     end
 
@@ -78,7 +76,7 @@ module Rapporteur
     #
     def run
       reset
-      @checks.each do |object|
+      @check_list.each do |object|
         object.call(self)
         break if @halted
       end
