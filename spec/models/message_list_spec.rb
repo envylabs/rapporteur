@@ -53,6 +53,6 @@ describe Rapporteur::MessageList do
 
 
   def add_translation(type, key, message, string)
-    I18n.backend.store_translations('en', {rapporteur: {type.to_sym => {key.to_sym => {message.to_sym => string}}}})
+    I18n.backend.store_translations('en', {:rapporteur => {type.to_sym => {key.to_sym => {message.to_sym => string}}}})
   end
 end
