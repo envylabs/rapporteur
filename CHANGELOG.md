@@ -2,10 +2,13 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* Use Ruby 1.8-compatible hash syntax.
+* Fix/add Ruby 1.8 compatibility. Because this library was built to work with
+  Rails 3.1 and 3.2 (as well as 4.0), not supporting Ruby 1.8 was dishonest.
+  That has now been rectified.
 * Update message and error handling to allow for both I18n/Proc/String support
   for both types of messages, by replacing ActiveModel::Errors with a local
-  message list.
+  message list. This provides better consistency between the error message and
+  success message implementations.
 * Use a customized check list registry to ensure order persistence and object
   uniqueness across Ruby versions.
 * Upgrade Combustion development support gem to fix deprecations in Rails 4.0.
