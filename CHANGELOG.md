@@ -2,6 +2,10 @@
 
 ## [HEAD][unreleased] / unreleased
 
+* No significant changes.
+
+## [3.0.2][v3.0.2] / 2014-05-17
+
 * Test for and allow compatibility with railties 4.1.
 
 ## [3.0.1][v3.0.1] / 2013-08-23
@@ -77,7 +81,8 @@
 * Initial public release.
 
 
-[unreleased]: https://github.com/codeschool/rapporteur/compare/v3.0.1...master
+[unreleased]: https://github.com/codeschool/rapporteur/compare/v3.0.2...master
+[v3.0.2]: https://github.com/codeschool/rapporteur/compare/v3.0.1...v3.0.2
 [v3.0.1]: https://github.com/codeschool/rapporteur/compare/v3.0.0...v3.0.1
 [v3.0.0]: https://github.com/codeschool/rapporteur/compare/v2.1.0...v3.0.0
 [v2.1.0]: https://github.com/codeschool/rapporteur/compare/v2.0.1...v2.1.0
