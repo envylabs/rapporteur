@@ -2,7 +2,7 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* No significant changes.
+* Test for and allow compatibility with railties 4.1.
 
 ## [3.0.1][v3.0.1] / 2013-08-23
 
