@@ -4,7 +4,6 @@ rvm:
   - 2.1.2
   - jruby-19mode
 gemfile:
-  - gemfiles/rails3.1.gemfile
   - gemfiles/rails3.2.gemfile
   - gemfiles/rails4.x.gemfile
 notifications:
