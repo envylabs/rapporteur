@@ -48,7 +48,7 @@ $ bundle install
 
 Supported Ruby versions:
 
-* MRI 2.1.0
+* MRI 2.1
 * MRI 2.0.0
 * MRI 1.9.3
 * MRI 1.9.2
