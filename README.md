@@ -1,8 +1,8 @@
 # Rapporteur (rap-or-TUHR)
 
-[![Gem Version](https://badge.fury.io/rb/rapporteur.png)](http://badge.fury.io/rb/rapporteur)
-[![Build Status](https://travis-ci.org/codeschool/rapporteur.png?branch=master)](https://travis-ci.org/codeschool/rapporteur)
-[![Code Climate](https://codeclimate.com/github/codeschool/rapporteur.png)](https://codeclimate.com/github/codeschool/rapporteur)
+[![Gem Version](http://img.shields.io/gem/v/rapporteur.svg)](http://rubygems.org/gems/rapporteur)
+[![Build Status](http://img.shields.io/travis/codeschool/rapporteur/master.svg)](https://travis-ci.org/codeschool/rapporteur)
+[![Code Climate](http://img.shields.io/codeclimate/github/codeschool/rapporteur.svg)](https://codeclimate.com/github/codeschool/rapporteur)
 
 This gem provides a singular, status-checking endpoint to your application. The
 endpoint provides a JSON response with either an HTTP 200 or an HTTP 500
