@@ -2,7 +2,8 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* No significant changes.
+* Removed official support for Rails 3.1.x, as it is no longer supported by the
+  Rails core team.
 
 ## [3.0.2][v3.0.2] / 2014-05-17
 
