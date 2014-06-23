@@ -1,6 +1,6 @@
 require 'spec_helper.rb'
 
-describe "status routes" do
+describe "status routes", :type => :routing do
   it 'routes /status.json to statuses#show' do
     expect({ :get => '/status.json'}).to route_to({
       :action => 'show',

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A check calling #halt!' do
+describe 'A check calling #halt!', :type => :request do
   before do
     Rapporteur.add_check { |checker| checker.add_message(:one, 1) }
     Rapporteur.add_check { |checker| checker.add_message(:two, 2).halt! }

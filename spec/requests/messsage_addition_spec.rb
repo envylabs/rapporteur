@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A status request with a check that modifies messages' do
+describe 'A status request with a check that modifies messages', :type => :request do
   subject { get(status_path) ; response }
 
   context 'creating a message with a block' do

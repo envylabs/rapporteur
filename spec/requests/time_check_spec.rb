@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A status request with a TimeCheck' do
+describe 'A status request with a TimeCheck', :type => :request do
   before do
     Rapporteur.add_check(Rapporteur::Checks::TimeCheck)
   end

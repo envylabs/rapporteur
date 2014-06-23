@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A status request with an ActiveRecordCheck' do
+describe 'A status request with an ActiveRecordCheck', :type => :request do
   before do
     Rapporteur.add_check(Rapporteur::Checks::ActiveRecordCheck)
   end
@@ -13,7 +13,7 @@ describe 'A status request with an ActiveRecordCheck' do
 
   context 'with a failed ActiveRecord connection' do
     before do
-      ActiveRecord::Base.connection.stub(:execute).
+      allow(ActiveRecord::Base.connection).to receive(:execute).
         and_raise(ActiveRecord::ConnectionNotEstablished)
     end
 

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A status request with a RevisionCheck' do
+describe 'A status request with a RevisionCheck', :type => :request do
   before do
     Rapporteur::Revision.stub(:current) { 'revisionidentifier' }
     Rapporteur.add_check(Rapporteur::Checks::RevisionCheck)
