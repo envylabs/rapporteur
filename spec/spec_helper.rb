@@ -6,6 +6,7 @@ ENV["RAILS_ENV"] ||= 'test'
 Combustion.initialize! :action_controller, :active_record
 
 require 'rspec/rails'
+require 'rspec/collection_matchers'
 require 'rapporteur/rspec'
 
 RSpec.configure do |config|
