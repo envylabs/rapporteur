@@ -44,7 +44,7 @@ end
 RSpec::Matchers.define :include_status_error_message do |attribute, message|
   match do |response|
     @body = JSON.parse(response.body)
-    @body.fetch('errors', {}).fetch(attribute.to_s).include?(message)
+    @body.fetch('errors', {}).fetch(attribute.to_s).match(message)
   end
 
   failure_message_when_negated do |actual|
@@ -55,7 +55,8 @@ end
 RSpec::Matchers.define :include_status_message do |name, message|
   match do |response|
     @body = JSON.parse(response.body)
-    @body.has_key?(name) && @body.fetch(name).include?(message)
+
+    @body.has_key?(name) && @body.fetch(name).match(message)
   end
 
   failure_message do |actual|
