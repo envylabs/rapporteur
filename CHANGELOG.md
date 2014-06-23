@@ -2,6 +2,9 @@
 
 ## [HEAD][unreleased] / unreleased
 
+* Update the packaged RSpec matchers to allow matching against regular
+  expressions or strings.
+* Add support for deprecation-less RSpec 3 by introducing rapporteur/rspec3.
 * Removed official support for Rails 3.1.x, as it is no longer supported by the
   Rails core team.
 
