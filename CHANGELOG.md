@@ -2,6 +2,10 @@
 
 ## [HEAD][unreleased] / unreleased
 
+* No significant changes.
+
+## [3.1.0][v3.1.0] / 2014-07-03
+
 * Remove the explicit railties dependency (was at `'>= 3.1', '< 4.2'`). This
   allows Rapporteur to be used in Sinatra applications without loading
   railties, actionpack, etc.
@@ -88,7 +92,8 @@
 * Initial public release.
 
 
-[unreleased]: https://github.com/codeschool/rapporteur/compare/v3.0.2...master
+[unreleased]: https://github.com/codeschool/rapporteur/compare/v3.1.0...master
+[v3.1.0]: https://github.com/codeschool/rapporteur/compare/v3.0.2...v3.1.0
 [v3.0.2]: https://github.com/codeschool/rapporteur/compare/v3.0.1...v3.0.2
 [v3.0.1]: https://github.com/codeschool/rapporteur/compare/v3.0.0...v3.0.1
 [v3.0.0]: https://github.com/codeschool/rapporteur/compare/v2.1.0...v3.0.0
