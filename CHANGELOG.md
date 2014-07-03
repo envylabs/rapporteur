@@ -2,6 +2,9 @@
 
 ## [HEAD][unreleased] / unreleased
 
+* Remove the explicit railties dependency (was at `'>= 3.1', '< 4.2'`). This
+  allows Rapporteur to be used in Sinatra applications without loading
+  railties, actionpack, etc.
 * Update the packaged RSpec matchers to allow matching against regular
   expressions or strings.
 * Add support for deprecation-less RSpec 3 by introducing rapporteur/rspec3.

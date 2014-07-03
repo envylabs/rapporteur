@@ -62,12 +62,10 @@ Supported Rails versions:
 * Rails 4.0.x.
 * Rails 3.2.x.
 
-## Usage
+Non-Rails environments are also supported (such as Sinatra), see Usage below
+for details.
 
-Simply adding the gem requirement to your Gemfile is enough to install and
-automatically load and configure the gem. Technically speaking, the gem is a
-Rails Engine, so it auto-initializes with Rails starts up. There is no further
-configuration necessary.
+## Usage
 
 By default, there are no application checks that run and the status endpoint
 simply reports the current application revision and time. This is useful for a
@@ -102,6 +100,39 @@ link_to status_path
 
 Were you already using the `/status.json` endpoint or the "status" route name?
 Hmm. Well... you just broke it.
+
+### Usage without Rails (i.e. Sinatra)
+
+If your application does not have Rails loaded, the Rails Engine logic will be
+bypassed. In this case, you must configure and run your Rapporteur reports
+manually because, in the very least, your status route will not be
+automatically generated as previously described.
+
+So, here is an example usage in Sinatra:
+
+```ruby
+require 'rapporteur'
+require 'my_app/api/endpoint'
+
+module MyApp
+  module API
+    module Endpoints
+      class Status < Endpoint
+        get "/status.json" do
+          status 200
+          json Rapporteur.run.as_json
+        end
+      end
+    end
+  end
+end
+```
+
+Require `rapporteur` and then, at some point, call `Rapporteur.run` to execute
+the configured checks. `as_json` will convert the result of the `run` into a
+Hash which is ready for JSON generation. At that point, do whatever you need to
+do with the Hash to have your framework of choice generate and respond with
+JSON.
 
 ## Customization
 
