@@ -4,6 +4,7 @@
 [![Build Status](http://img.shields.io/travis/codeschool/rapporteur/master.svg)](https://travis-ci.org/codeschool/rapporteur)
 [![Code Climate](http://img.shields.io/codeclimate/github/codeschool/rapporteur.svg)](https://codeclimate.com/github/codeschool/rapporteur)
 [![Dependency Status](https://gemnasium.com/codeschool/rapporteur.svg)](https://gemnasium.com/codeschool/rapporteur)
+[![Inline docs](http://inch-ci.org/github/codeschool/rapporteur.svg?branch=master)](http://inch-ci.org/github/codeschool/rapporteur)
 
 
 This gem provides a singular, status-checking endpoint to your application. The
