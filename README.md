@@ -112,19 +112,13 @@ automatically generated as previously described.
 So, here is an example usage in Sinatra:
 
 ```ruby
-require 'rapporteur'
-require 'my_app/api/endpoint'
+require "rapporteur"
+require "sinatra/base"
 
-module MyApp
-  module API
-    module Endpoints
-      class Status < Endpoint
-        get "/status.json" do
-          status 200
-          json Rapporteur.run.as_json
-        end
-      end
-    end
+class MyApp < Sinatra::Base
+  get "/status.json" do
+    content_type :json
+    body Rapporteur.run.as_json.to_json
   end
 end
 ```
