@@ -46,6 +46,7 @@ module Rapporteur
     end
     @checker
   end
+  @checker = nil
 
   # Public: Empties all configured checks from the checker. This may be
   # useful for testing and for cases where you might've built up some basic
