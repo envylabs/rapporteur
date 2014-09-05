@@ -102,6 +102,17 @@ link_to status_path
 Were you already using the `/status.json` endpoint or the "status" route name?
 Hmm. Well... you just broke it.
 
+### Mounting the Rack app in Rails
+
+If you'd like to customize the route, you can use the provided Rack application
+and mount it to whatever path you like in your Rails application.
+
+```ruby
+Rails.application.routes.draw do
+  get '/status', to: Rapporteur::App.new
+end
+```
+
 ### Usage without Rails (i.e. Sinatra)
 
 If your application does not have Rails loaded, the Rails Engine logic will be

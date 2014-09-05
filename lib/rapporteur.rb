@@ -5,6 +5,7 @@ require "rapporteur/version"
 # application status endpoint.
 #
 module Rapporteur
+  autoload :App, 'rapporteur/app'
   autoload :CheckList, 'rapporteur/check_list'
   autoload :Checker, 'rapporteur/checker'
   autoload :CheckerDeprecations, 'rapporteur/checker_deprecations'
