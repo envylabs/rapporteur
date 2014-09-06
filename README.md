@@ -35,13 +35,19 @@ validations:
 
 ## Installation
 
-To install, add this line to your application's Gemfile:
+To install, add this line to your application's `Gemfile`:
 
 ```ruby
 gem 'rapporteur'
 ```
 
-And then execute:
+Or, to enable the Rails engine:
+
+```ruby
+gem 'rapporteur', require: 'rapporteur/engine'
+```
+
+Then execute:
 
 ```bash
 $ bundle install
@@ -70,42 +76,41 @@ for details.
 
 By default, there are no application checks that run and the status endpoint
 simply reports the current application revision and time. This is useful for a
-basic connectivity check to be watched by a third party service like Pingdom
+basic connectivity check to be watched by a third-party service like Pingdom
 for a very simple, non-critical application.
 
-You may optionally use any of the pre-defined checks (such as the ActiveRecord
+You may optionally use any of the pre-defined checks (such as the Active Record
 connection check) to expand the robustness of the status checks. Adding a check
 will execute that check each time the status endpoint is requested, so be
 somewhat wary of doing _too_ much. See more in the [Adding checks
-section](#adding-checks), below.
+section](#adding-checks) below.
 
 Further, you can define your own checks which could be custom to your
-application or environment and report their own, unique errors.  The only
+application or environment and report their own, unique errors. The only
 requirement is that the check objects are callable (respond to `#call`, like a
-Proc). See more in the [Creating custom checks
-section](#creating-custom-checks), below.
+`Proc`). See more in the [Creating custom checks
+section](#creating-custom-checks) below.
 
-### The endpoint
+### The Rails Engine Endpoint
 
-This gem provides a new, single endpoint in your application. Specifically, it
-creates a named `/status.json` route, with the "status" name. It does not match
-on any other format or variation, which isolates the pollution of your
-application routes.
+The Rails engine provided by this gem add a single endpoint to your application.
+Specifically, it creates a route for `/status.json` named `status`. It does not
+match on any other format or variation to minimize the pollution of application routes.
 
-If you'd like to link to the status endpoint from within your application (why,
-I couldn't guess), you can use a standard Rails URL helper:
+If you'd like to link to the status endpoint from within your application, you
+can use a standard Rails URL helper:
 
 ```ruby
 link_to status_path
 ```
 
-Were you already using the `/status.json` endpoint or the "status" route name?
-Hmm. Well... you just broke it.
+An existing `/status.json` route or named route called `status` will cause
+a conflict and prevent the app from booting.
 
-### Mounting the Rack app in Rails
+### Mounting the Rack App in Rails
 
 If you'd like to customize the route, you can use the provided Rack application
-and mount it to whatever path you like in your Rails application.
+instead of the Rails engine and mount it at whatever path you like.
 
 ```ruby
 Rails.application.routes.draw do
@@ -113,7 +118,7 @@ Rails.application.routes.draw do
 end
 ```
 
-### Usage without Rails (i.e. Sinatra)
+### Usage without Rails (e.g. Sinatra)
 
 If your application does not have Rails loaded, the Rails Engine logic will be
 bypassed. In this case, you must configure and run your Rapporteur reports

@@ -1,4 +1,3 @@
-require "rapporteur/engine" if defined?(Rails)
 require "rapporteur/version"
 
 # Rapporteur is a Rails Engine which provides your application with an

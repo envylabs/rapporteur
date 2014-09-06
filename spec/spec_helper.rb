@@ -3,6 +3,8 @@ require 'bundler/setup'
 require 'combustion'
 
 ENV["RAILS_ENV"] ||= 'test'
+
+require 'rapporteur/engine' # the engine must be loaded before the app boots
 Combustion.initialize! :action_controller, :active_record
 
 require 'rspec/rails'
