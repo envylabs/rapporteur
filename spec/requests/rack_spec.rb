@@ -43,7 +43,32 @@ begin
       it 'does not contain errors' do
         expect(subject).not_to(have_key('errors'))
       end
+    end
 
+    context 'with an error' do
+      before do
+        Rapporteur.add_check(Rapporteur::Checks::ActiveRecordCheck)
+
+        allow(ActiveRecord::Base.connection)
+          .to receive(:execute)
+          .and_raise(ActiveRecord::ConnectionNotEstablished)
+      end
+
+      it 'responds with HTTP 500' do
+        expect(subject.status).to(eq(500))
+      end
+
+      it 'responds with a JSON content header' do
+        expect(subject.content_type).to(eq(Mime::JSON))
+      end
+
+      it 'responds with valid JSON' do
+        expect { JSON.parse(subject.body) }.not_to(raise_error)
+      end
+
+      it 'contains an error message' do
+        expect(subject).to include_status_error_message(:database, I18n.t('rapporteur.errors.database.unavailable', :raise => true))
+      end
     end
   end
 rescue LoadError
