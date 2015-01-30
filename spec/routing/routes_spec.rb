@@ -20,4 +20,8 @@ describe "status routes", :type => :routing do
   it 'does not route /status.xml' do
     expect({ :get => '/status.xml'}).to_not be_routable
   end
+
+  it 'does not route /status.json.json' do
+    expect({ :get => '/status.json.json'}).to_not be_routable
+  end
 end
