@@ -8,7 +8,10 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* No significant changes.
+* Update the Rails route definition to force (and default) a JSON format. The
+  intent is to fix an issue where Rails auto-appended a `(.:format)` segment to
+  the fixed route and broke `/status.json` route matching. See
+  [codeschool/rapporteur#9](https://github.com/codeschool/rapporteur/issues/9).
 
 ## [3.1.0][v3.1.0] / 2014-07-03
 
