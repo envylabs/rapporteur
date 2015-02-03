@@ -8,6 +8,10 @@
 
 ## [HEAD][unreleased] / unreleased
 
+* No significant changes.
+
+## [3.3.0][v3.3.0] / 2015-02-03
+
 * Remove the customized Rapporteur::Responder (an ActionController::Responder)
   since responders were removed from Rails core in version 4.2 and inline the
   logic into the StatusesController.
@@ -112,7 +116,8 @@
 * Initial public release.
 
 
-[unreleased]: https://github.com/codeschool/rapporteur/compare/v3.2.0...master
+[unreleased]: https://github.com/codeschool/rapporteur/compare/v3.3.0...master
+[v3.3.0]: https://github.com/codeschool/rapporteur/compare/v3.2.0...v3.3.0
 [v3.2.0]: https://github.com/codeschool/rapporteur/compare/v3.1.0...v3.2.0
 [v3.1.0]: https://github.com/codeschool/rapporteur/compare/v3.0.2...v3.1.0
 [v3.0.2]: https://github.com/codeschool/rapporteur/compare/v3.0.1...v3.0.2
