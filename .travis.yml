@@ -4,7 +4,7 @@ cache:
     - vendor/bundle
 rvm:
   - 1.9.3
-  - 2.2.0
+  - 2.1.5
   - jruby-19mode
 gemfile:
   - gemfiles/rails3.2.gemfile
