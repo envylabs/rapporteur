@@ -13,8 +13,3 @@ gemfile:
   - gemfiles/sinatra1.x.gemfile
 notifications:
   email: false
-  campfire:
-    on_success: change
-    on_failure: always
-    rooms:
-      - secure: "gxEt3SeVn1kup6PfB6hiQu6eWsefmMEdd8U1qPSS6vlRjsM7Xy2IrXdz9gdl\n0nrrRgESvOxT3sqMh4/opH6M1kbtCyl3M0yvjF2QUtjWQ+4BStJGhNyXlDTp\nNAas19fuEUPBNxNqoy7aTVBiFpQRs0NisEZTS3+N3eA2tz757Qk="
