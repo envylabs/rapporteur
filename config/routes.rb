@@ -1,3 +1,20 @@
+Rapporteur::Engine.routes.draw do
+  get("status.:format", {
+    :as => :status,
+    :constraints => {:format => "json"},
+    :defaults => {:format => "json"},
+    :to => "statuses#show"
+  })
+end
+
 Rails.application.routes.draw do
-  get 'status.:format', :to => 'statuses#show', :defaults => {:format => 'json'}, :constraints => {:format => 'json'}, :as => :status
+  unless Rails.application.routes.named_routes.routes[:status]
+    mount Rapporteur::Engine => "/"
+    get("/status.:format", {
+      :as => :status,
+      :constraints => {:format => "json"},
+      :defaults => {:format => "json"},
+      :to => "statuses#show"
+    })
+  end
 end

@@ -163,8 +163,7 @@ module Rapporteur
     end
 
     ##
-    # Internal: Used by Rails' JSON serialization, specifically in
-    # ActionController::Responder.
+    # Internal: Used by Rails' JSON serialization.
     #
     def read_attribute_for_serialization(key)
       @messages[key]

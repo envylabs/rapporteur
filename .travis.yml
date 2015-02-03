@@ -5,7 +5,8 @@ rvm:
   - jruby-19mode
 gemfile:
   - gemfiles/rails3.2.gemfile
-  - gemfiles/rails4.x.gemfile
+  - gemfiles/rails4.1.gemfile
+  - gemfiles/rails4.2.gemfile
   - gemfiles/sinatra1.x.gemfile
 notifications:
   email: false

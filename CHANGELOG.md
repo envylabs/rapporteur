@@ -8,7 +8,14 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* No significant changes.
+* Remove the customized Rapporteur::Responder (an ActionController::Responder)
+  since responders were removed from Rails core in version 4.2 and inline the
+  logic into the StatusesController.
+* Register Rapporteur::Engine routes for Rails 4.2 support.
+* Auto-mount the engine routes and force definition of an application `status`
+  route for backward compatibility. Otherwise, developers would seemingly need
+  to either manually mount the engine or define an application-level named
+  route for the status endpoint.
 
 ## [3.2.0][v3.2.0] / 2015-02-02
 

@@ -10,7 +10,6 @@ module Rapporteur
   autoload :CheckerDeprecations, 'rapporteur/checker_deprecations'
   autoload :Checks, 'rapporteur/checks'
   autoload :MessageList, 'rapporteur/message_list'
-  autoload :Responder, 'rapporteur/responder'
   autoload :Revision, 'rapporteur/revision'
 
 

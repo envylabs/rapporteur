@@ -22,7 +22,7 @@ the current application Git revision and server time:
 ```
 
 When an application validation fails, an HTTP 500 response is returned with a
-collection of error messages, similar to the default Rails responders for model
+collection of error messages, similar to the Rails < 4.2 responders for model
 validations:
 
 ```json
