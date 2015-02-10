@@ -59,8 +59,7 @@ Supported Ruby versions:
 
 Supported Rails versions:
 
-* Rails 4.1.x.
-* Rails 4.0.x.
+* Rails 4.x.
 * Rails 3.2.x.
 
 Non-Rails environments are also supported (such as Sinatra), see Usage below
