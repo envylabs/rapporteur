@@ -8,7 +8,8 @@
 
 ## [HEAD][unreleased] / unreleased
 
-* No significant changes.
+* Update the route generation code to no longer use a `.routes` method that
+  becomes private in Rails 5. Thanks to [lsylvester][].
 
 ## [3.3.0][v3.3.0] / 2015-02-03
 
@@ -115,6 +116,8 @@
 
 * Initial public release.
 
+
+[lsylvester]: https://github.com/lsylvester
 
 [unreleased]: https://github.com/codeschool/rapporteur/compare/v3.3.0...master
 [v3.3.0]: https://github.com/codeschool/rapporteur/compare/v3.2.0...v3.3.0
