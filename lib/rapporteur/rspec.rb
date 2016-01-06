@@ -6,7 +6,7 @@ shared_examples_for 'a successful status response' do
   end
 
   it 'responds with a JSON content header' do
-    expect(subject.content_type).to(eq(Mime::JSON))
+    expect(subject.content_type).to(eq(Mime[:json]))
   end
 
   it 'responds with valid JSON' do
@@ -28,7 +28,7 @@ shared_examples_for 'an erred status response' do
   end
 
   it 'responds with a JSON content header' do
-    expect(subject.content_type).to(eq(Mime::JSON))
+    expect(subject.content_type).to(eq(Mime[:json]))
   end
 
   it 'responds with valid JSON' do
