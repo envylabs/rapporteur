@@ -6,12 +6,12 @@
 [![Dependency Status](https://gemnasium.com/codeschool/rapporteur.svg)](https://gemnasium.com/codeschool/rapporteur)
 [![Inline docs](http://inch-ci.org/github/codeschool/rapporteur.svg?branch=master)](http://inch-ci.org/github/codeschool/rapporteur)
 
-## [HEAD][unreleased] / unreleased
+## [HEAD][] / unreleased
 
 * Update the route generation code to no longer use a `.routes` method that
   becomes private in Rails 5. Thanks to [lsylvester][].
 
-## [3.3.0][v3.3.0] / 2015-02-03
+## [3.3.0][] / 2015-02-03
 
 * Remove the customized Rapporteur::Responder (an ActionController::Responder)
   since responders were removed from Rails core in version 4.2 and inline the
@@ -22,14 +22,14 @@
   to either manually mount the engine or define an application-level named
   route for the status endpoint.
 
-## [3.2.0][v3.2.0] / 2015-02-02
+## [3.2.0][] / 2015-02-02
 
 * Update the Rails route definition to force (and default) a JSON format. The
   intent is to fix an issue where Rails auto-appended a `(.:format)` segment to
   the fixed route and broke `/status.json` route matching. See
   [codeschool/rapporteur#9](https://github.com/codeschool/rapporteur/issues/9).
 
-## [3.1.0][v3.1.0] / 2014-07-03
+## [3.1.0][] / 2014-07-03
 
 * Remove the explicit railties dependency (was at `'>= 3.1', '< 4.2'`). This
   allows Rapporteur to be used in Sinatra applications without loading
@@ -40,16 +40,16 @@
 * Removed official support for Rails 3.1.x, as it is no longer supported by the
   Rails core team.
 
-## [3.0.2][v3.0.2] / 2014-05-17
+## [3.0.2][] / 2014-05-17
 
 * Test for and allow compatibility with railties 4.1.
 
-## [3.0.1][v3.0.1] / 2013-08-23
+## [3.0.1][] / 2013-08-23
 
 * Add back missing support for I18n interpolated values which was lost with the
   customized message lists.
 
-## [3.0.0][v3.0.0] / 2013-08-23
+## [3.0.0][] / 2013-08-23
 
 * Fix/add Ruby 1.8 compatibility. Because this library was built to work with
   Rails 3.1 and 3.2 (as well as 4.0), not supporting Ruby 1.8 was dishonest.
@@ -68,17 +68,17 @@
   reporting. This means that there are now, possibly, more than one message per
   key.
 
-## [2.1.0][v2.1.0] / 2013-06-28
+## [2.1.0][] / 2013-06-28
 
 * Update the gemspec to allow for Rails 4.0 environments.
 * Update the packaged Responder to properly handle Rails 4.0.
 * Fix deprecation notice for Checker.clear.
 
-## [2.0.1][v2.0.1] / 2013-05-31
+## [2.0.1][] / 2013-05-31
 
 * Fix NoMethodError in CheckerDeprecations#clear.
 
-## [2.0.0][v2.0.0] / 2013-05-31
+## [2.0.0][] / 2013-05-31
 
 * Removed active_model_serializers dependency.
 * Extracted time and revision checks into Checks::TimeCheck and
@@ -101,13 +101,13 @@
 * Added a facade for all Checker interaction. Clients should not use
   Rapporteur::Checker.add_check et al, in favor of using Rapporteur.add_check.
 
-## [1.1.0][v1.1.0] / 2013-05-30
+## [1.1.0][] / 2013-05-30
 
 * Add the ability to define custom successful response messages via
   add_message. This allows Check authors to relay automated information forward
   to other external systems.
 
-## [1.0.1][v1.0.1] / 2013-05-20
+## [1.0.1][] / 2013-05-20
 
 * Improve the gemspec's minimum runtime- and development-dependency version
   accuracies.
@@ -119,15 +119,15 @@
 
 [lsylvester]: https://github.com/lsylvester
 
-[unreleased]: https://github.com/codeschool/rapporteur/compare/v3.3.0...master
-[v3.3.0]: https://github.com/codeschool/rapporteur/compare/v3.2.0...v3.3.0
-[v3.2.0]: https://github.com/codeschool/rapporteur/compare/v3.1.0...v3.2.0
-[v3.1.0]: https://github.com/codeschool/rapporteur/compare/v3.0.2...v3.1.0
-[v3.0.2]: https://github.com/codeschool/rapporteur/compare/v3.0.1...v3.0.2
-[v3.0.1]: https://github.com/codeschool/rapporteur/compare/v3.0.0...v3.0.1
-[v3.0.0]: https://github.com/codeschool/rapporteur/compare/v2.1.0...v3.0.0
-[v2.1.0]: https://github.com/codeschool/rapporteur/compare/v2.0.1...v2.1.0
-[v2.0.1]: https://github.com/codeschool/rapporteur/compare/v2.0.0...v2.0.1
-[v2.0.0]: https://github.com/codeschool/rapporteur/compare/v1.1.0...v2.0.0
-[v1.1.0]: https://github.com/codeschool/rapporteur/compare/v1.0.1...v1.1.0
-[v1.0.1]: https://github.com/codeschool/rapporteur/compare/v1.0.0...v1.0.1
+[HEAD]: https://github.com/codeschool/rapporteur/compare/v3.3.0...master
+[3.3.0]: https://github.com/codeschool/rapporteur/compare/v3.2.0...v3.3.0
+[3.2.0]: https://github.com/codeschool/rapporteur/compare/v3.1.0...v3.2.0
+[3.1.0]: https://github.com/codeschool/rapporteur/compare/v3.0.2...v3.1.0
+[3.0.2]: https://github.com/codeschool/rapporteur/compare/v3.0.1...v3.0.2
+[3.0.1]: https://github.com/codeschool/rapporteur/compare/v3.0.0...v3.0.1
+[3.0.0]: https://github.com/codeschool/rapporteur/compare/v2.1.0...v3.0.0
+[2.1.0]: https://github.com/codeschool/rapporteur/compare/v2.0.1...v2.1.0
+[2.0.1]: https://github.com/codeschool/rapporteur/compare/v2.0.0...v2.0.1
+[2.0.0]: https://github.com/codeschool/rapporteur/compare/v1.1.0...v2.0.0
+[1.1.0]: https://github.com/codeschool/rapporteur/compare/v1.0.1...v1.1.0
+[1.0.1]: https://github.com/codeschool/rapporteur/compare/v1.0.0...v1.0.1
