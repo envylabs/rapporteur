@@ -1,10 +1,10 @@
 # Rapporteur (rap-or-TUHR)
 
 [![Gem Version](http://img.shields.io/gem/v/rapporteur.svg?style=flat)](http://rubygems.org/gems/rapporteur)
-[![Build Status](http://img.shields.io/travis/codeschool/rapporteur/master.svg?style=flat)](https://travis-ci.org/codeschool/rapporteur)
-[![Code Climate](http://img.shields.io/codeclimate/github/codeschool/rapporteur.svg?style=flat)](https://codeclimate.com/github/codeschool/rapporteur)
-[![Dependency Status](https://gemnasium.com/codeschool/rapporteur.svg)](https://gemnasium.com/codeschool/rapporteur)
-[![Inline docs](http://inch-ci.org/github/codeschool/rapporteur.svg?branch=master)](http://inch-ci.org/github/codeschool/rapporteur)
+[![Build Status](http://img.shields.io/travis/envylabs/rapporteur/master.svg?style=flat)](https://travis-ci.org/envylabs/rapporteur)
+[![Code Climate](http://img.shields.io/codeclimate/github/envylabs/rapporteur.svg?style=flat)](https://codeclimate.com/github/envylabs/rapporteur)
+[![Dependency Status](https://gemnasium.com/envylabs/rapporteur.svg)](https://gemnasium.com/envylabs/rapporteur)
+[![Inline docs](http://inch-ci.org/github/envylabs/rapporteur.svg?branch=master)](http://inch-ci.org/github/envylabs/rapporteur)
 
 
 This gem provides a singular, status-checking endpoint to your application. The
