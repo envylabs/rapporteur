@@ -7,6 +7,10 @@ appraise "rails4.x" do
   gem "railties", "~> 4.0"
 end
 
+appraise "rails5.x" do
+  gem "railties", "~> 5.0"
+end
+
 appraise "sinatra1.x" do
   gem "sinatra", "~> 1.4"
 end
