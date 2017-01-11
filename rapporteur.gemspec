@@ -10,12 +10,14 @@ Gem::Specification.new do |spec|
   spec.email         = [""]
   spec.description   = %q{An engine that provides common status polling endpoint.}
   spec.summary       = %q{An engine that provides common status polling endpoint.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/envylabs/rapporteur"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files`.split($/)
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+    f.match(%r{^(test|spec|features)/})
+  end
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'i18n', '~> 0.6'

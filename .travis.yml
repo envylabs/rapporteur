@@ -1,16 +1,11 @@
-language: ruby
-sudo: false
+before_install: gem install bundler -v 1.13.7
 cache: bundler
-rvm:
-  - 2.1.10
-  - 2.2.6
-  - 2.3.3
-  - 2.4.0
 gemfile:
   - gemfiles/rails3.2.gemfile
   - gemfiles/rails4.x.gemfile
   - gemfiles/rails5.x.gemfile
   - gemfiles/sinatra1.x.gemfile
+language: ruby
 matrix:
   allow_failures:
     # json 1.8.3 fails to build under 2.4.0
@@ -27,3 +22,9 @@ matrix:
   fast_finish: true
 notifications:
   email: false
+rvm:
+  - 2.1.10
+  - 2.2.6
+  - 2.3.3
+  - 2.4.0
+sudo: false
