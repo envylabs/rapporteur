@@ -1,5 +1,5 @@
 module Rapporteur
-  class StatusesController < ActionController::Base
+  class StatusesController < ApplicationController
     def show
       respond_to do |format|
         format.json do
