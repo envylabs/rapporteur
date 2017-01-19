@@ -6,7 +6,7 @@ describe 'A status request with a TimeCheck', :type => :request do
 
     allow(Time).to receive(:now).and_return(Time.gm(2013,8,23))
 
-    get_json(rapporteur.root_path)
+    get(rapporteur.status_path(format: 'json'))
   end
 
   it_behaves_like 'a successful status response'

@@ -4,7 +4,7 @@ describe 'A status request with an ActiveRecordCheck', :type => :request do
   context 'with an unerring ActiveRecord connection' do
     before do
       Rapporteur.add_check(Rapporteur::Checks::ActiveRecordCheck)
-      get_json(rapporteur.root_path)
+      get(rapporteur.status_path(format: 'json'))
     end
 
     it_behaves_like 'a successful status response'
@@ -15,7 +15,7 @@ describe 'A status request with an ActiveRecordCheck', :type => :request do
       allow(ActiveRecord::Base.connection).to receive(:execute).
         and_raise(ActiveRecord::ConnectionNotEstablished)
       Rapporteur.add_check(Rapporteur::Checks::ActiveRecordCheck)
-      get_json(rapporteur.root_path)
+      get(rapporteur.status_path(format: 'json'))
     end
 
     it_behaves_like 'an erred status response'

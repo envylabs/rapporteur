@@ -8,7 +8,7 @@ describe 'A check calling #halt!', :type => :request do
     Rapporteur.add_check { |checker| checker.add_message(:two, 2).halt! }
     Rapporteur.add_check { |checker| checker.add_message(:three, 3) }
 
-    get_json(rapporteur.root_path)
+    get(rapporteur.status_path(format: 'json'))
   end
 
   it 'runs the first check' do

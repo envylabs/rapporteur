@@ -1,3 +1,3 @@
 Rapporteur::Engine.routes.draw do
-  root to: 'statuses#show'
+  get '/(.:format)', to: 'statuses#show', as: :status
 end
