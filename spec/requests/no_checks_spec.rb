@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe 'A status request with no checks', :type => :request do
-  subject { get(status_path) ; response }
+  before do
+    get_json(rapporteur.root_path)
+  end
 
   it_behaves_like 'a successful status response'
 end

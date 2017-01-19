@@ -4,15 +4,15 @@ describe 'A status request with a RevisionCheck', :type => :request do
   before do
     allow(Rapporteur::Revision).to receive(:current).and_return('revisionidentifier')
     Rapporteur.add_check(Rapporteur::Checks::RevisionCheck)
-  end
 
-  subject { get(status_path) ; response }
+    get_json(rapporteur.root_path)
+  end
 
   it_behaves_like 'a successful status response'
 
   context 'the response payload' do
     it 'contains the current application revision' do
-      expect(subject).to include_status_message('revision', 'revisionidentifier')
+      expect(response).to include_status_message('revision', 'revisionidentifier')
     end
   end
 end
