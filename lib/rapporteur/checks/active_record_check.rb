@@ -2,7 +2,7 @@ module Rapporteur
   module Checks
     class ActiveRecordCheck
       def self.call(checker)
-        ActiveRecord::Base.connection.execute("SELECT current_time AS time").first.fetch('time')
+        ActiveRecord::Base.connection.select_value("SELECT current_time AS time")
       rescue
         checker.add_error(:database, :unavailable)
       end

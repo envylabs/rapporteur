@@ -8,7 +8,8 @@
 
 ## [HEAD][] / unreleased
 
-* No significant changes.
+* Change ActiveRecord to use a more database agnostic `select_value` query to
+  determine availability. See #12.
 
 ## [3.4.0][] / 2016-01-06
 

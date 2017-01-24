@@ -13,7 +13,7 @@ describe 'A status request with an ActiveRecordCheck', :type => :request do
 
   context 'with a failed ActiveRecord connection' do
     before do
-      allow(ActiveRecord::Base.connection).to receive(:execute).
+      allow(ActiveRecord::Base.connection).to receive(:select_value).
         and_raise(ActiveRecord::ConnectionNotEstablished)
     end
 
