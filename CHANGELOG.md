@@ -8,6 +8,10 @@
 
 ## [HEAD][] / unreleased
 
+* No significant changes.
+
+## [3.5.0][] / 2016-01-28
+
 * Add a backward-compatible fallback to auto-mount the `Rapporteur::Engine` in
   a Rails application and deprecation warning if it is not explicitly mounted
   by the application.
@@ -130,7 +134,8 @@
 
 [lsylvester]: https://github.com/lsylvester
 
-[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.4.0...master
+[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.5.0...master
+[3.5.0]: https://github.com/envylabs/rapporteur/compare/v3.4.0...v3.5.0
 [3.4.0]: https://github.com/envylabs/rapporteur/compare/v3.3.0...v3.4.0
 [3.3.0]: https://github.com/envylabs/rapporteur/compare/v3.2.0...v3.3.0
 [3.2.0]: https://github.com/envylabs/rapporteur/compare/v3.1.0...v3.2.0
