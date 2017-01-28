@@ -8,6 +8,12 @@
 
 ## [HEAD][] / unreleased
 
+* Add a backward-compatible fallback to auto-mount the `Rapporteur::Engine` in
+  a Rails application and deprecation warning if it is not explicitly mounted
+  by the application.
+* Require the parent application to explicitly mount the `Rapporteur::Engine`
+  in their Rails application. This adds mount point flexibility at the cost of
+  configuration.
 * Change ActiveRecord to use a more database agnostic `select_value` query to
   determine availability. See #12.
 
