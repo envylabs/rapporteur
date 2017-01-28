@@ -3,16 +3,17 @@ require 'spec_helper'
 describe 'A status request with a TimeCheck', :type => :request do
   before do
     Rapporteur.add_check(Rapporteur::Checks::TimeCheck)
-  end
 
-  subject { get(status_path) ; response }
+    allow(Time).to receive(:now).and_return(Time.gm(2013,8,23))
+
+    get(rapporteur.status_path(format: 'json'))
+  end
 
   it_behaves_like 'a successful status response'
 
   context 'the response payload' do
     it 'contains the time in ISO8601' do
-      allow(Time).to receive(:now).and_return(Time.gm(2013,8,23))
-      expect(subject).to include_status_message('time', /^2013-08-23T00:00:00(?:.000)?Z$/)
+      expect(response).to include_status_message('time', /^2013-08-23T00:00:00(?:.000)?Z$/)
     end
   end
 end
