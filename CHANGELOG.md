@@ -8,7 +8,9 @@
 
 ## [HEAD][] / unreleased
 
-* No significant changes.
+* Fix automatic Rapporteur mount detection logic under Rails 4.0 and 4.1. The
+  mapper constraints used in 4.2 were not used in 4.0 and 4.1, causing a method
+  reference error. See #15, thanks to [sshaw][].
 
 ## [3.5.0][] / 2016-01-28
 
@@ -133,6 +135,7 @@
 
 
 [lsylvester]: https://github.com/lsylvester
+[sshaw]: https://github.com/sshaw
 
 [HEAD]: https://github.com/envylabs/rapporteur/compare/v3.5.0...master
 [3.5.0]: https://github.com/envylabs/rapporteur/compare/v3.4.0...v3.5.0
