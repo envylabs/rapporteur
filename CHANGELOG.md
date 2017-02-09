@@ -8,6 +8,10 @@
 
 ## [HEAD][] / unreleased
 
+* No significant changes.
+
+## [3.5.1][] / 2016-02-08
+
 * Fix automatic Rapporteur mount detection logic under Rails 4.0 and 4.1. The
   mapper constraints used in 4.2 were not used in 4.0 and 4.1, causing a method
   reference error. See #15, thanks to [sshaw][].
@@ -137,17 +141,18 @@
 [lsylvester]: https://github.com/lsylvester
 [sshaw]: https://github.com/sshaw
 
-[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.5.0...master
-[3.5.0]: https://github.com/envylabs/rapporteur/compare/v3.4.0...v3.5.0
-[3.4.0]: https://github.com/envylabs/rapporteur/compare/v3.3.0...v3.4.0
-[3.3.0]: https://github.com/envylabs/rapporteur/compare/v3.2.0...v3.3.0
-[3.2.0]: https://github.com/envylabs/rapporteur/compare/v3.1.0...v3.2.0
-[3.1.0]: https://github.com/envylabs/rapporteur/compare/v3.0.2...v3.1.0
-[3.0.2]: https://github.com/envylabs/rapporteur/compare/v3.0.1...v3.0.2
-[3.0.1]: https://github.com/envylabs/rapporteur/compare/v3.0.0...v3.0.1
-[3.0.0]: https://github.com/envylabs/rapporteur/compare/v2.1.0...v3.0.0
-[2.1.0]: https://github.com/envylabs/rapporteur/compare/v2.0.1...v2.1.0
-[2.0.1]: https://github.com/envylabs/rapporteur/compare/v2.0.0...v2.0.1
-[2.0.0]: https://github.com/envylabs/rapporteur/compare/v1.1.0...v2.0.0
-[1.1.0]: https://github.com/envylabs/rapporteur/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/envylabs/rapporteur/compare/v1.0.0...v1.0.1
+[1.1.0]: https://github.com/envylabs/rapporteur/compare/v1.0.1...v1.1.0
+[2.0.0]: https://github.com/envylabs/rapporteur/compare/v1.1.0...v2.0.0
+[2.0.1]: https://github.com/envylabs/rapporteur/compare/v2.0.0...v2.0.1
+[2.1.0]: https://github.com/envylabs/rapporteur/compare/v2.0.1...v2.1.0
+[3.0.0]: https://github.com/envylabs/rapporteur/compare/v2.1.0...v3.0.0
+[3.0.1]: https://github.com/envylabs/rapporteur/compare/v3.0.0...v3.0.1
+[3.0.2]: https://github.com/envylabs/rapporteur/compare/v3.0.1...v3.0.2
+[3.1.0]: https://github.com/envylabs/rapporteur/compare/v3.0.2...v3.1.0
+[3.2.0]: https://github.com/envylabs/rapporteur/compare/v3.1.0...v3.2.0
+[3.3.0]: https://github.com/envylabs/rapporteur/compare/v3.2.0...v3.3.0
+[3.4.0]: https://github.com/envylabs/rapporteur/compare/v3.3.0...v3.4.0
+[3.5.0]: https://github.com/envylabs/rapporteur/compare/v3.4.0...v3.5.0
+[3.5.1]: https://github.com/envylabs/rapporteur/compare/v3.5.0...v3.5.1
+[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.5.1...master
