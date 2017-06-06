@@ -4,6 +4,7 @@ gemfile:
   - gemfiles/rails4.2.x.gemfile
   - gemfiles/rails5.x.gemfile
   - gemfiles/sinatra1.x.gemfile
+  - gemfiles/sinatra2.x.gemfile
 language: ruby
 matrix:
   fast_finish: true
