@@ -1,29 +1,16 @@
 before_install: gem install bundler -v 1.14.3
 cache: bundler
 gemfile:
-  - gemfiles/rails3.2.gemfile
-  - gemfiles/rails4.x.gemfile
+  - gemfiles/rails4.2.x.gemfile
   - gemfiles/rails5.x.gemfile
   - gemfiles/sinatra1.x.gemfile
 language: ruby
 matrix:
-  allow_failures:
-    # json 1.8.3 fails to build under 2.4.0
-    - rvm: 2.4.0
-      gemfile: gemfiles/rails3.2.gemfile
-    - rvm: 2.4.0
-      gemfile: gemfiles/rails4.x.gemfile
-    - rvm: 2.4.0
-      gemfile: gemfiles/sinatra1.x.gemfile
-  exclude:
-    # rails 5 requires Ruby 2.2.2+
-    - rvm: 2.1.10
-      gemfile: gemfiles/rails5.x.gemfile
   fast_finish: true
 notifications:
   email: false
 rvm:
-  - 2.2.6
-  - 2.3.3
-  - 2.4.0
+  - 2.2.7
+  - 2.3.4
+  - 2.4.1
 sudo: false
