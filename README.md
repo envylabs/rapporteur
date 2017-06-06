@@ -54,16 +54,16 @@ Supported Ruby versions:
 * MRI 2.4
 * MRI 2.3
 * MRI 2.2
-* MRI 2.1
 
-Supported Rails versions:
+Supported frameworks:
 
 * Rails 5.x.
-* Rails 4.x.
-* Rails 3.2.x.
+* Rails 4.2+.
+* Sinatra 2.x.
+* Sinatra 1.x.
 
-Non-Rails environments are also supported (such as Sinatra), see Usage below
-for details.
+Older versions of Ruby and frameworks may also work with this library, however
+they are not officially supported.
 
 ## Usage
 
