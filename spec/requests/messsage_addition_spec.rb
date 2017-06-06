@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A status request with a check that modifies messages', :type => :request do
+RSpec.describe 'A status request with a check that modifies messages', :type => :request do
   context 'creating a message with a block' do
     context 'with an unerring response' do
       before do

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Rapporteur::MessageList, :type => :model do
+RSpec.describe Rapporteur::MessageList, :type => :model do
   let(:list) { Rapporteur::MessageList.new(:errors) }
 
   before { I18n.backend.reload! }

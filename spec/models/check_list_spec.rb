@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Rapporteur::CheckList, :type => :model do
+RSpec.describe Rapporteur::CheckList, :type => :model do
   let(:list) { described_class.new }
 
   context '#add' do

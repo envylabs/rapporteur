@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A status request with an ActiveRecordCheck', :type => :request do
+RSpec.describe 'A status request with an ActiveRecordCheck', :type => :request do
   context 'with an unerring ActiveRecord connection' do
     before do
       Rapporteur.add_check(Rapporteur::Checks::ActiveRecordCheck)

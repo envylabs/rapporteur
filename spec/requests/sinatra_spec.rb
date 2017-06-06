@@ -6,7 +6,7 @@ begin
   require "sinatra/base"
   require "rack/test"
 
-  describe "Sinatra" do
+  RSpec.describe "Sinatra" do
     include Rack::Test::Methods
 
 

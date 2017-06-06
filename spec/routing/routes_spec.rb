@@ -1,6 +1,6 @@
 require 'spec_helper.rb'
 
-describe "status route", :type => :routing do
+RSpec.describe "status route", :type => :routing do
   it 'routes / to rapporteur/statuses#show' do
     expect({ :get => '/'}).to route_to({
       :action => 'show',

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'A check calling #halt!', :type => :request do
+RSpec.describe 'A check calling #halt!', :type => :request do
   let(:parsed_response) { JSON.parse(response.body) }
 
   before do
