@@ -9,3 +9,7 @@ end
 appraise "sinatra1.x" do
   gem "sinatra", "~> 1.4"
 end
+
+appraise "sinatra2.x" do
+  gem "sinatra", "~> 2.0"
+end
