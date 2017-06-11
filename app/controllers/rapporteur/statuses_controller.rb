@@ -1,6 +1,7 @@
 module Rapporteur
   class StatusesController < ApplicationController
     def show
+      expires_now
       respond_to do |format|
         format.json do
           resource = Rapporteur.run

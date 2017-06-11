@@ -8,7 +8,9 @@
 
 ## [HEAD][] / unreleased
 
-* No significant changes.
+* Add `expires_now` to the Rails controller's status response. This ensures the
+  `Cache-Control` header instructs the client to not cache the response and
+  avoids the `ETag` header being generated.
 
 ## [3.5.1][] / 2016-02-08
 
