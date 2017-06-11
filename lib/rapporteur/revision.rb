@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rapporteur
   # Manages memoizing and maintaining the current application revision.
   #
@@ -47,7 +49,7 @@ module Rapporteur
       when Proc
         revision.call.to_s
       when NilClass
-        "You must provide a Rapporteur::Revision.current= String or Proc"
+        'You must provide a Rapporteur::Revision.current= String or Proc'
       else
         raise ArgumentError, "Unknown revision type given: #{revision.inspect}"
       end

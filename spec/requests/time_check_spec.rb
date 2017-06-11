@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.describe 'A status request with a TimeCheck', :type => :request do
+RSpec.describe 'A status request with a TimeCheck', type: :request do
   before do
     Rapporteur.add_check(Rapporteur::Checks::TimeCheck)
 
-    allow(Time).to receive(:now).and_return(Time.gm(2013,8,23))
+    allow(Time).to receive(:now).and_return(Time.gm(2013, 8, 23))
 
     get(rapporteur.status_path(format: 'json'))
   end
@@ -17,4 +19,3 @@ RSpec.describe 'A status request with a TimeCheck', :type => :request do
     end
   end
 end
-

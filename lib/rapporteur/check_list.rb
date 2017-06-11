@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rapporteur
   # Manages a list of checks.
   #
@@ -13,9 +15,8 @@ module Rapporteur
     # Public: Returns a new, empty CheckList instance.
     #
     def initialize
-      @list = Array.new
+      @list = []
     end
-
 
     # Public: Add a new check to the list.
     #

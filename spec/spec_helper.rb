@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'bundler/setup'
 require 'combustion'
 
-ENV["RAILS_ENV"] ||= 'test'
+ENV['RAILS_ENV'] ||= 'test'
 Combustion.initialize! :action_controller, :active_record
 
 require 'rspec/rails'

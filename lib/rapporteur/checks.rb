@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rapporteur
   module Checks
     autoload :ActiveRecordCheck, 'rapporteur/checks/active_record_check'
@@ -14,7 +16,7 @@ module Rapporteur
     #     time: "2013-06-21T05:18:59Z"
     #   }
     #
-    TimeCheck = lambda { |checker| checker.add_message(:time, Time.now.utc) }
+    TimeCheck = ->(checker) { checker.add_message(:time, Time.now.utc) }
 
     # A check which reports the current revision of the running application.
     #
@@ -26,6 +28,6 @@ module Rapporteur
     #     revision: "c74edd04f64b25ff6691308bcfdefcee149aa4b5"
     #   }
     #
-    RevisionCheck = lambda { |checker| checker.add_message(:revision, Revision.current) }
+    RevisionCheck = ->(checker) { checker.add_message(:revision, Revision.current) }
   end
 end

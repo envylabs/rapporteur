@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.describe 'A status request with an ActiveRecordCheck', :type => :request do
+RSpec.describe 'A status request with an ActiveRecordCheck', type: :request do
   context 'with an unerring ActiveRecord connection' do
     before do
       Rapporteur.add_check(Rapporteur::Checks::ActiveRecordCheck)
@@ -12,8 +14,8 @@ RSpec.describe 'A status request with an ActiveRecordCheck', :type => :request d
 
   context 'with a failed ActiveRecord connection' do
     before do
-      allow(ActiveRecord::Base.connection).to receive(:select_value).
-        and_raise(ActiveRecord::ConnectionNotEstablished)
+      allow(ActiveRecord::Base.connection).to receive(:select_value)
+        .and_raise(ActiveRecord::ConnectionNotEstablished)
       Rapporteur.add_check(Rapporteur::Checks::ActiveRecordCheck)
       get(rapporteur.status_path(format: 'json'))
     end

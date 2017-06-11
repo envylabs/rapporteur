@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.describe Rapporteur::CheckList, :type => :model do
+RSpec.describe Rapporteur::CheckList, type: :model do
   let(:list) { described_class.new }
 
   context '#add' do
@@ -28,7 +30,7 @@ RSpec.describe Rapporteur::CheckList, :type => :model do
       list.add(check0 = double)
       list.add(check1 = double)
       list.add(check2 = double)
-      returns = Array.new
+      returns = []
 
       list.each do |object|
         returns << object

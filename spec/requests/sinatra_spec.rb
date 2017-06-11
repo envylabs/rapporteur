@@ -1,22 +1,22 @@
-require "spec_helper"
+# frozen_string_literal: true
 
-ENV["RACK_ENV"] = "test"
+require 'spec_helper'
+
+ENV['RACK_ENV'] = 'test'
 
 begin
-  require "sinatra/base"
-  require "rack/test"
+  require 'sinatra/base'
+  require 'rack/test'
 
-  RSpec.describe "Sinatra" do
+  RSpec.describe 'Sinatra' do
     include Rack::Test::Methods
 
-
     class TestApp < Sinatra::Base
-      get "/status.json" do
+      get '/status.json' do
         content_type :json
         body Rapporteur.run.as_json.to_json
       end
     end
-
 
     def app
       TestApp
@@ -26,8 +26,7 @@ begin
       Rapporteur.add_check(Rapporteur::Checks::TimeCheck)
     end
 
-
-    subject { get("/status.json") ; last_response }
+    subject { get('/status.json'); last_response }
 
     it 'responds with HTTP 200' do
       expect(subject.status).to(eq(200))
@@ -42,17 +41,16 @@ begin
     end
 
     it 'contains the time in ISO8601' do
-      allow(Time).to receive(:now).and_return(Time.gm(2013,8,23))
+      allow(Time).to receive(:now).and_return(Time.gm(2013, 8, 23))
       expect(subject).to include_status_message('time', /^2013-08-23T00:00:00(?:.000)?Z$/)
     end
 
     context 'the response payload' do
-      subject { get("/status.json") ; JSON.parse(last_response.body) }
+      subject { get('/status.json'); JSON.parse(last_response.body) }
 
       it 'does not contain errors' do
         expect(subject).not_to(have_key('errors'))
       end
-
     end
   end
 rescue LoadError

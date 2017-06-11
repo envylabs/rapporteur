@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.describe 'A status request with a RevisionCheck', :type => :request do
+RSpec.describe 'A status request with a RevisionCheck', type: :request do
   before do
     allow(Rapporteur::Revision).to receive(:current).and_return('revisionidentifier')
     Rapporteur.add_check(Rapporteur::Checks::RevisionCheck)

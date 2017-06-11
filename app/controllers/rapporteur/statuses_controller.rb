@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Rapporteur
   class StatusesController < ApplicationController
     def show
@@ -7,7 +9,7 @@ module Rapporteur
           resource = Rapporteur.run
 
           if resource.errors.empty?
-            render({:json => resource})
+            render(json: resource)
           else
             display_errors(resource, :json)
           end
@@ -15,12 +17,10 @@ module Rapporteur
       end
     end
 
-
     private
 
-
     def display_errors(resource, format)
-      render({format => {:errors => resource.errors}, :status => :internal_server_error})
+      render(format => { errors: resource.errors }, :status => :internal_server_error)
     end
   end
 end

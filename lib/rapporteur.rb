@@ -1,5 +1,7 @@
-require "rapporteur/engine" if defined?(Rails)
-require "rapporteur/version"
+# frozen_string_literal: true
+
+require 'rapporteur/engine' if defined?(Rails)
+require 'rapporteur/version'
 
 # Rapporteur is a Rails Engine which provides your application with an
 # application status endpoint.
@@ -11,7 +13,6 @@ module Rapporteur
   autoload :Checks, 'rapporteur/checks'
   autoload :MessageList, 'rapporteur/message_list'
   autoload :Revision, 'rapporteur/revision'
-
 
   # Public: Add a pre-built or custom check to your status endpoint. These
   # checks are used to test the state of the world of the application, and
@@ -30,7 +31,7 @@ module Rapporteur
   # Returns the Checker instance.
   # Raises ArgumentError if the given check does not respond to call.
   #
-  def self.add_check(object_or_nil_with_block=nil, &block)
+  def self.add_check(object_or_nil_with_block = nil, &block)
     checker.add_check(object_or_nil_with_block, &block)
   end
 

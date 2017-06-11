@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rapporteur'
 
 shared_examples_for 'a successful status response' do
@@ -63,11 +65,11 @@ RSpec::Matchers.define :include_status_error_message do |attribute, message|
     @body.fetch('errors', {}).fetch(attribute.to_s).match(message)
   end
 
-  failure_message_for_should do |actual|
+  failure_message_for_should do |_actual|
     "expected #{@body.inspect} to include a #{attribute}:#{message.inspect} error message"
   end
 
-  failure_message_for_should_not do |actual|
+  failure_message_for_should_not do |_actual|
     "expected #{@body.inspect} to not include a #{attribute}:#{message.inspect} error message"
   end
 end
@@ -75,14 +77,14 @@ end
 RSpec::Matchers.define :include_status_message do |name, message|
   match do |response|
     @body = JSON.parse(response.body)
-    @body.has_key?(name) && @body.fetch(name).match(message)
+    @body.key?(name) && @body.fetch(name).match(message)
   end
 
-  failure_message_for_should do |actual|
+  failure_message_for_should do |_actual|
     "expected #{@body.inspect} to include a #{name.inspect}: #{message.inspect} message"
   end
 
-  failure_message_for_should_not do |actual|
+  failure_message_for_should_not do |_actual|
     "expected #{@body.inspect} to not include a #{name.inspect}: #{message.inspect} message"
   end
 end

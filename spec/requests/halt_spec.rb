@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.describe 'A check calling #halt!', :type => :request do
+RSpec.describe 'A check calling #halt!', type: :request do
   let(:parsed_response) { JSON.parse(response.body) }
 
   before do

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.describe Rapporteur::MessageList, :type => :model do
+RSpec.describe Rapporteur::MessageList, type: :model do
   let(:list) { Rapporteur::MessageList.new(:errors) }
 
   before { I18n.backend.reload! }
@@ -35,7 +37,7 @@ RSpec.describe Rapporteur::MessageList, :type => :model do
 
     it 'translates and adds recognized I18n keys with named parameters in the #full_messages' do
       add_translation(:errors, :test, :i18n_message, 'translated %{language}')
-      list.add(:test, :i18n_message, :language => 'French')
+      list.add(:test, :i18n_message, language: 'French')
       expect(list.full_messages).to include('test translated French')
     end
 
@@ -57,7 +59,7 @@ RSpec.describe Rapporteur::MessageList, :type => :model do
   context '#to_hash' do
     it 'flattens key/value pairs with only one value' do
       list.add(:test, 'message')
-      expect(list.to_hash).to eq({:test => 'message'})
+      expect(list.to_hash).to eq(test: 'message')
     end
 
     it 'retains multiple values for a single key' do
@@ -78,11 +80,9 @@ RSpec.describe Rapporteur::MessageList, :type => :model do
     end
   end
 
-
   private
 
-
   def add_translation(type, key, message, string)
-    I18n.backend.store_translations('en', {:rapporteur => {type.to_sym => {key.to_sym => {message.to_sym => string}}}})
+    I18n.backend.store_translations('en', rapporteur: { type.to_sym => { key.to_sym => { message.to_sym => string } } })
   end
 end

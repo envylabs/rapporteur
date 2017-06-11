@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'forwardable'
 require 'set'
 
@@ -8,10 +10,8 @@ module Rapporteur
   class MessageList
     extend Forwardable
 
-
     def_delegator :@messages, :clear
     def_delegator :@messages, :empty?
-
 
     # Public: Initialize a new MessageList instance.
     #
@@ -26,7 +26,6 @@ module Rapporteur
       @list_type = list_type
       @messages = Hash.new { |hash, key| hash[key] = Set.new }
     end
-
 
     # Public: Adds a new message to the list for the given attribute.
     #
@@ -76,9 +75,9 @@ module Rapporteur
     # Returns an Array containing Strings of messages.
     #
     def full_messages
-      @messages.map { |attribute, attribute_messages|
+      @messages.map do |attribute, attribute_messages|
         attribute_messages.collect { |message| "#{attribute} #{message}" }
-      }.flatten
+      end.flatten
     end
 
     # Public: Returns the added attributes and their messages as a Hash, keyed
@@ -96,26 +95,22 @@ module Rapporteur
     # Returns a Hash instance.
     #
     def to_hash
-      hash = Hash.new
+      hash = {}
       @messages.each_pair do |key, value|
-        if value.size == 1
-          hash[key] = value.first
-        else
-          hash[key] = value.to_a
-        end
+        hash[key] = if value.size == 1
+                      value.first
+                    else
+                      value.to_a
+                    end
       end
       hash
     end
 
-
     private
 
-
     def generate_message(key, type, i18n_options)
-      I18n.translate(type, i18n_options.merge({
-        :default => [type, type.to_s],
-        :scope => [:rapporteur, @list_type, key]
-      }))
+      I18n.translate(type, i18n_options.merge(default: [type, type.to_s],
+                                              scope: [:rapporteur, @list_type, key]))
     end
 
     def normalize_message(attribute, message, i18n_options)
