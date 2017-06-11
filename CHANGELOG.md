@@ -8,6 +8,10 @@
 
 ## [HEAD][] / unreleased
 
+* No significant changes.
+
+## [3.6.0][] / 2017-06-10
+
 * Add `expires_now` to the Rails controller's status response. This ensures the
   `Cache-Control` header instructs the client to not cache the response and
   avoids the `ETag` header being generated.
@@ -157,4 +161,5 @@
 [3.4.0]: https://github.com/envylabs/rapporteur/compare/v3.3.0...v3.4.0
 [3.5.0]: https://github.com/envylabs/rapporteur/compare/v3.4.0...v3.5.0
 [3.5.1]: https://github.com/envylabs/rapporteur/compare/v3.5.0...v3.5.1
-[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.5.1...master
+[3.6.0]: https://github.com/envylabs/rapporteur/compare/v3.5.1...v3.6.0
+[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.6.0...master
