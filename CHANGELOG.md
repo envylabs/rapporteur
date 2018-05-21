@@ -8,8 +8,10 @@
 
 ## [HEAD][] / unreleased
 
-* Convert Checker#messages and #errors into Thread-local variables. See #17 and
-  #18, thanks to [nevinera][].
+* Convert Checker#messages and #errors into Thread-local variables. See
+  [#17](https://github.com/envylabs/rapporteur/issues/17) and
+  [#18](https://github.com/envylabs/rapporteur/issues/18), thanks to
+  [nevinera][].
 
 ## [3.6.0][] / 2017-06-10
 
@@ -21,7 +23,8 @@
 
 * Fix automatic Rapporteur mount detection logic under Rails 4.0 and 4.1. The
   mapper constraints used in 4.2 were not used in 4.0 and 4.1, causing a method
-  reference error. See #15, thanks to [sshaw][].
+  reference error. See [#15](https://github.com/envylabs/rapporteur/issues/15),
+  thanks to [sshaw][].
 
 ## [3.5.0][] / 2016-01-28
 
@@ -32,7 +35,8 @@
   in their Rails application. This adds mount point flexibility at the cost of
   configuration.
 * Change ActiveRecord to use a more database agnostic `select_value` query to
-  determine availability. See #12.
+  determine availability. See
+  [#12](https://github.com/envylabs/rapporteur/issues/12).
 
 ## [3.4.0][] / 2016-01-06
 
@@ -55,7 +59,7 @@
 * Update the Rails route definition to force (and default) a JSON format. The
   intent is to fix an issue where Rails auto-appended a `(.:format)` segment to
   the fixed route and broke `/status.json` route matching. See
-  [envylabs/rapporteur#9](https://github.com/envylabs/rapporteur/issues/9).
+  [#9](https://github.com/envylabs/rapporteur/issues/9).
 
 ## [3.1.0][] / 2014-07-03
 
