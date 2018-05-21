@@ -9,8 +9,6 @@ module Rapporteur
     extend CheckerDeprecations
 
     def initialize
-      @messages = MessageList.new(:messages)
-      @errors = MessageList.new(:errors)
       @check_list = CheckList.new
       reset
     end
@@ -34,9 +32,9 @@ module Rapporteur
     #
     def add_check(object_or_nil_with_block = nil, &block)
       if block_given?
-        @check_list.add(block)
+        check_list.add(block)
       elsif object_or_nil_with_block.respond_to?(:call)
-        @check_list.add(object_or_nil_with_block)
+        check_list.add(object_or_nil_with_block)
       else
         raise ArgumentError, 'A check must respond to #call.'
       end
@@ -51,7 +49,7 @@ module Rapporteur
     # Returns self.
     #
     def clear
-      @check_list.clear
+      check_list.clear
       self
     end
 
@@ -76,7 +74,7 @@ module Rapporteur
     #
     def run
       reset
-      @check_list.each do |object|
+      check_list.each do |object|
         object.call(self)
         break if @halted
       end
@@ -117,7 +115,7 @@ module Rapporteur
     # Returns self.
     #
     def add_error(name, message, i18n_options = {})
-      @errors.add(name, message, i18n_options)
+      errors.add(name, message, i18n_options)
       self
     end
 
@@ -144,7 +142,7 @@ module Rapporteur
     # Returns self.
     #
     def add_message(name, message, i18n_options = {})
-      @messages.add(name, message, i18n_options)
+      messages.add(name, message, i18n_options)
       self
     end
 
@@ -152,29 +150,37 @@ module Rapporteur
     # Internal: Returns a hash of messages suitable for conversion into JSON.
     #
     def as_json(_args = {})
-      @messages.to_hash
+      messages.to_hash
     end
 
     ##
     # Internal: Used by Rails' JSON serialization to render error messages.
     #
-    attr_reader :errors
+    def errors
+      Thread.current[:rapporteur_errors] ||= MessageList.new(:errors)
+    end
 
     ##
     # Internal: Used by Rails' JSON serialization.
     #
     def read_attribute_for_serialization(key)
-      @messages[key]
+      messages[key]
     end
 
     alias read_attribute_for_validation read_attribute_for_serialization
 
     private
 
+    attr_reader :check_list
+
+    def messages
+      Thread.current[:rapporteur_messages] ||= MessageList.new(:messages)
+    end
+
     def reset
       @halted = false
-      @messages.clear
-      @errors.clear
+      messages.clear
+      errors.clear
     end
   end
 end
