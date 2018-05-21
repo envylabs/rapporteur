@@ -8,7 +8,8 @@
 
 ## [HEAD][] / unreleased
 
-* No significant changes.
+* Convert Checker#messages and #errors into Thread-local variables. See #17 and
+  #18, thanks to [nevinera][].
 
 ## [3.6.0][] / 2017-06-10
 
@@ -145,6 +146,7 @@
 
 
 [lsylvester]: https://github.com/lsylvester
+[nevinera]: https://github.com/nevinera
 [sshaw]: https://github.com/sshaw
 
 [1.0.1]: https://github.com/envylabs/rapporteur/compare/v1.0.0...v1.0.1
