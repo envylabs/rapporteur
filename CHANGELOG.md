@@ -8,6 +8,10 @@
 
 ## [HEAD][] / unreleased
 
+* No significant changes.
+
+## [3.6.1][] / 2018-05-20
+
 * Convert Checker#messages and #errors into Thread-local variables. See
   [#17](https://github.com/envylabs/rapporteur/issues/17) and
   [#18](https://github.com/envylabs/rapporteur/issues/18), thanks to
@@ -168,4 +172,5 @@
 [3.5.0]: https://github.com/envylabs/rapporteur/compare/v3.4.0...v3.5.0
 [3.5.1]: https://github.com/envylabs/rapporteur/compare/v3.5.0...v3.5.1
 [3.6.0]: https://github.com/envylabs/rapporteur/compare/v3.5.1...v3.6.0
-[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.6.0...master
+[3.6.1]: https://github.com/envylabs/rapporteur/compare/v3.6.0...v3.6.1
+[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.6.1...master
