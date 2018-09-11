@@ -7,7 +7,7 @@
 
 ## [HEAD][] / unreleased
 
-* No significant changes.
+* Allow i18n 1.x versions as a dependency.
 
 ## [3.6.1][] / 2018-05-20
 
