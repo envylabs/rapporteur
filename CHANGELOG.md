@@ -7,6 +7,10 @@
 
 ## [HEAD][] / unreleased
 
+* No significant changes.
+
+## [3.6.2][] / 2018-09-11
+
 * Allow i18n 1.x versions as a dependency.
 
 ## [3.6.1][] / 2018-05-20
@@ -172,4 +176,5 @@
 [3.5.1]: https://github.com/envylabs/rapporteur/compare/v3.5.0...v3.5.1
 [3.6.0]: https://github.com/envylabs/rapporteur/compare/v3.5.1...v3.6.0
 [3.6.1]: https://github.com/envylabs/rapporteur/compare/v3.6.0...v3.6.1
-[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.6.1...master
+[3.6.2]: https://github.com/envylabs/rapporteur/compare/v3.6.1...v3.6.2
+[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.6.2...master
