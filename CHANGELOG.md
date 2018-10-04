@@ -7,6 +7,10 @@
 
 ## [HEAD][] / unreleased
 
+* No significant changes.
+
+## [3.6.3][] / 2018-10-03
+
 * Ensure the `Rapporteur::ApplicationController` is loaded and utilized.
 
 ## [3.6.2][] / 2018-09-11
@@ -177,4 +181,5 @@
 [3.6.0]: https://github.com/envylabs/rapporteur/compare/v3.5.1...v3.6.0
 [3.6.1]: https://github.com/envylabs/rapporteur/compare/v3.6.0...v3.6.1
 [3.6.2]: https://github.com/envylabs/rapporteur/compare/v3.6.1...v3.6.2
-[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.6.2...master
+[3.6.3]: https://github.com/envylabs/rapporteur/compare/v3.6.2...v3.6.3
+[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.6.3...master
