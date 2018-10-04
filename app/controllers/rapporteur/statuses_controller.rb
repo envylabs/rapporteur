@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'application_controller'
+
 module Rapporteur
   class StatusesController < ApplicationController
     def show

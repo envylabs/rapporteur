@@ -7,7 +7,7 @@
 
 ## [HEAD][] / unreleased
 
-* No significant changes.
+* Ensure the `Rapporteur::ApplicationController` is loaded and utilized.
 
 ## [3.6.2][] / 2018-09-11
 
