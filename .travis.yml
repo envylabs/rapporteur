@@ -2,6 +2,9 @@ before_install: gem install bundler -v 1.17.3
 cache: bundler
 gemfile:
   - gemfiles/rails4.2.x.gemfile
+  - gemfiles/rails5.0.gemfile
+  - gemfiles/rails5.1.gemfile
+  - gemfiles/rails5.2.gemfile
   - gemfiles/rails5.x.gemfile
   - gemfiles/sinatra1.x.gemfile
   - gemfiles/sinatra2.x.gemfile
