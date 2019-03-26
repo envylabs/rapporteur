@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 ENV['RACK_ENV'] = 'test'
 
 begin

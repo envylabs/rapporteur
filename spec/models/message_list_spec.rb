@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe Rapporteur::MessageList, type: :model do
   let(:list) { Rapporteur::MessageList.new(:errors) }
 

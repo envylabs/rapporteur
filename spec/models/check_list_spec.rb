@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe Rapporteur::CheckList, type: :model do
   let(:list) { described_class.new }
 

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
-
 RSpec.describe 'A status request with an ActiveRecordCheck', type: :request do
   context 'with an unerring ActiveRecord connection' do
     before do
