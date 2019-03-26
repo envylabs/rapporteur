@@ -98,10 +98,10 @@ module Rapporteur
       hash = {}
       @messages.each_pair do |key, value|
         hash[key] = if value.size == 1
-                      value.first
-                    else
-                      value.to_a
-                    end
+          value.first
+        else
+          value.to_a
+        end
       end
       hash
     end

@@ -1,0 +1,37 @@
+inherit_gem:
+  rubocop-rails_config:
+    - "config/rails.yml"
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'gemfiles/*'
+
+Layout/CaseIndentation:
+  Enabled: true
+  EnforcedStyle: end
+
+Layout/EndOfLine:
+  EnforcedStyle: "lf"
+
+Layout/IndentHeredoc:
+  EnforcedStyle: "squiggly"
+
+Layout/IndentationConsistency:
+  EnforcedStyle: "normal"
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: "single_quotes"
