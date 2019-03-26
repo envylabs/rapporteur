@@ -50,9 +50,9 @@ $ bundle install
 
 Supported Ruby versions:
 
+* MRI 2.6
+* MRI 2.5
 * MRI 2.4
-* MRI 2.3
-* MRI 2.2
 
 Supported frameworks:
 
