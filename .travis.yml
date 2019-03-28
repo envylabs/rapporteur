@@ -1,4 +1,6 @@
-before_install: gem install bundler -v 1.17.3
+before_install:
+  - gem uninstall -ax bundler
+  - gem install bundler -v 1.17.3
 cache: bundler
 gemfile:
   - gemfiles/rails4.2.x.gemfile
