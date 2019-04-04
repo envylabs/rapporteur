@@ -1,14 +1,11 @@
 before_install:
-  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
-  - gem install bundler -v '< 2'
+  - gem install bundler -v 2.0.1
 cache: bundler
 gemfile:
-  - gemfiles/rails4.2.x.gemfile
   - gemfiles/rails5.0.gemfile
   - gemfiles/rails5.1.gemfile
   - gemfiles/rails5.2.gemfile
   - gemfiles/rails5.x.gemfile
-  - gemfiles/sinatra1.x.gemfile
   - gemfiles/sinatra2.x.gemfile
 language: ruby
 matrix:
