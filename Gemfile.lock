@@ -195,7 +195,7 @@ DEPENDENCIES
   rspec-rails (~> 3.2)
   rubocop (~> 0.66.0)
   rubocop-rails_config (~> 0.5.0)
-  sqlite3 (< 1.5)
+  sqlite3
 
 BUNDLED WITH
    2.0.1
