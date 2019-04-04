@@ -9,6 +9,10 @@
 
 * No significant changes.
 
+## [3.6.4][] / 2019-04-04
+
+* Maintenance release, no functional changes.
+
 ## [3.6.3][] / 2018-10-03
 
 * Ensure the `Rapporteur::ApplicationController` is loaded and utilized.
@@ -182,4 +186,5 @@
 [3.6.1]: https://github.com/envylabs/rapporteur/compare/v3.6.0...v3.6.1
 [3.6.2]: https://github.com/envylabs/rapporteur/compare/v3.6.1...v3.6.2
 [3.6.3]: https://github.com/envylabs/rapporteur/compare/v3.6.2...v3.6.3
-[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.6.3...master
+[3.6.4]: https://github.com/envylabs/rapporteur/compare/v3.6.3...v3.6.4
+[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.6.4...master
