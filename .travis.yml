@@ -4,21 +4,52 @@ branches:
   only:
     - master
     - /^v\d+\.\d+\.\d+/
-cache: bundler
+cache:
+  bundler: true
 dist: xenial
-gemfile:
-  - gemfiles/rails5.0.gemfile
-  - gemfiles/rails5.1.gemfile
-  - gemfiles/rails5.2.gemfile
-  - gemfiles/rails5.x.gemfile
-  - gemfiles/sinatra2.x.gemfile
+jobs:
+  fail_fast: true
+  include:
+    - stage: "Test"
+      script: bundle exec rake
+      rvm: 2.6.2
+
+    - stage: "Latest Rails Release"
+      env: BUNDLE_GEMFILE=$PWD/gemfiles/rails_latest.gemfile
+      rvm: 2.6.2
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/rails_latest.gemfile
+      rvm: 2.5.5
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/rails_latest.gemfile
+      rvm: 2.4.5
+
+    - stage: "Additinal Rails Tests"
+      env: BUNDLE_GEMFILE=$PWD/gemfiles/rails5.2.gemfile
+      rvm: 2.6.2
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/rails5.2.gemfile
+      rvm: 2.5.5
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/rails5.2.gemfile
+      rvm: 2.4.5
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/rails5.1.gemfile
+      rvm: 2.6.2
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/rails5.1.gemfile
+      rvm: 2.5.5
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/rails5.1.gemfile
+      rvm: 2.4.5
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/rails5.0.gemfile
+      rvm: 2.6.2
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/rails5.0.gemfile
+      rvm: 2.5.5
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/rails5.0.gemfile
+      rvm: 2.4.5
+
+    - stage: "Sinatra 2.x Release"
+      env: BUNDLE_GEMFILE=$PWD/gemfiles/sinatra2.x.gemfile
+      rvm: 2.6.2
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/sinatra2.x.gemfile
+      rvm: 2.5.5
+    - env: BUNDLE_GEMFILE=$PWD/gemfiles/sinatra2.x.gemfile
+      rvm: 2.4.5
 language: ruby
-matrix:
-  fast_finish: true
 notifications:
   email: false
-rvm:
-  - 2.4.5
-  - 2.5.5
-  - 2.6.2
 sudo: false
