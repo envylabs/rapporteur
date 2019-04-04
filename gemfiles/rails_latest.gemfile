@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 gem "activerecord-jdbcsqlite3-adapter", platforms: :jruby
-gem "sqlite3", "< 1.4", platforms: :ruby
-gem "railties", "~> 5.0"
+gem "sqlite3", platforms: :ruby
+gem "rails"
 
 gemspec path: "../"
