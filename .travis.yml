@@ -5,6 +5,7 @@ branches:
     - master
     - /^v\d+\.\d+\.\d+/
 cache: bundler
+dist: xenial
 gemfile:
   - gemfiles/rails5.0.gemfile
   - gemfiles/rails5.1.gemfile
