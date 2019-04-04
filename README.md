@@ -2,7 +2,7 @@
 
 [![Gem Version](http://img.shields.io/gem/v/rapporteur.svg?style=flat)](http://rubygems.org/gems/rapporteur)
 [![Build Status](http://img.shields.io/travis/envylabs/rapporteur/master.svg?style=flat)](https://travis-ci.org/envylabs/rapporteur)
-[![Code Climate](http://img.shields.io/codeclimate/github/envylabs/rapporteur.svg?style=flat)](https://codeclimate.com/github/envylabs/rapporteur)
+[![Maintainability](https://api.codeclimate.com/v1/badges/8c498efff627b93db4b9/maintainability)](https://codeclimate.com/github/envylabs/rapporteur/maintainability)
 [![Inline docs](http://inch-ci.org/github/envylabs/rapporteur.svg?branch=master)](http://inch-ci.org/github/envylabs/rapporteur)
 
 
