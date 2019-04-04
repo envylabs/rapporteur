@@ -4,4 +4,4 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'activerecord-jdbcsqlite3-adapter', platforms: :jruby
-gem 'sqlite3', '< 1.4', platforms: :ruby
+gem 'sqlite3', '< 1.5', platforms: :ruby
