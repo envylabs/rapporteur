@@ -1,0 +1,5 @@
+---
+
+rules:
+  key-ordering: "enable"
+  quoted-strings: "enable"

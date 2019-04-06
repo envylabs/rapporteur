@@ -1,15 +1,13 @@
-inherit_gem:
-  rubocop-rails_config:
-    - "config/rails.yml"
+---
 
 AllCops:
-  TargetRubyVersion: 2.3
   Exclude:
     - 'gemfiles/*'
+  TargetRubyVersion: 2.3
 
 Layout/CaseIndentation:
   Enabled: true
-  EnforcedStyle: end
+  EnforcedStyle: "end"
 
 Layout/EndOfLine:
   EnforcedStyle: "lf"
@@ -35,3 +33,7 @@ Style/SafeNavigation:
 
 Style/StringLiterals:
   EnforcedStyle: "single_quotes"
+
+inherit_gem:
+  rubocop-rails_config:
+    - "config/rails.yml"
