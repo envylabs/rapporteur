@@ -8,7 +8,7 @@ require 'rapporteur/version'
 Gem::Specification.new do |spec|
   spec.name          = 'rapporteur'
   spec.version       = Rapporteur::VERSION
-  spec.authors       = ['Envy Labs', 'Code School']
+  spec.authors       = ['Envy Labs']
   spec.email         = ['']
   spec.description   = 'An engine that provides common status polling endpoint.'
   spec.summary       = 'An engine that provides common status polling endpoint.'
