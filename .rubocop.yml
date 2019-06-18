@@ -1,3 +1,14 @@
+AllCops:
+  TargetRubyVersion: 2.4
+
+Bundler/OrderedGems:
+  Exclude:
+    - gemfiles/*
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - gemfiles/*
+
 Metrics/BlockLength:
   Exclude:
     - db/migrate/*
