@@ -1,7 +1,7 @@
 ---
 
 before_install:
-  - "gem install bundler -v 2.0.1"
+  - "gem install bundler -v 2.0.2"
 branches:
   only:
     - "master"
@@ -12,7 +12,7 @@ dist: "xenial"
 jobs:
   fail_fast: true
   include:
-    - rvm: "2.6.2"
+    - rvm: "2.6.3"
       script: "bundle exec rake"
       stage: "Test"
 
