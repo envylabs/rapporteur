@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'forwardable'
-require 'set'
+require "forwardable"
+require "set"
 
 module Rapporteur
   # A container of keys and one or more messages per key. This acts similarly
@@ -56,7 +56,7 @@ module Rapporteur
     #
     # Returns the MessageList instance.
     #
-    def add(attribute, message, i18n_options = {})
+    def add(attribute, message, i18n_options={})
       @messages[attribute.to_sym].add(normalize_message(attribute, message, i18n_options))
       self
     end
@@ -75,9 +75,9 @@ module Rapporteur
     # Returns an Array containing Strings of messages.
     #
     def full_messages
-      @messages.map do |attribute, attribute_messages|
-        attribute_messages.collect { |message| "#{attribute} #{message}" }
-      end.flatten
+      @messages.map { |attribute, attribute_messages|
+        attribute_messages.map { |message| "#{attribute} #{message}" }
+      }.flatten
     end
 
     # Public: Returns the added attributes and their messages as a Hash, keyed
@@ -98,10 +98,10 @@ module Rapporteur
       hash = {}
       @messages.each_pair do |key, value|
         hash[key] = if value.size == 1
-          value.first
-        else
-          value.to_a
-        end
+                      value.first
+                    else
+                      value.to_a
+                    end
       end
       hash
     end
@@ -109,8 +109,9 @@ module Rapporteur
     private
 
     def generate_message(key, type, i18n_options)
-      I18n.translate(type, i18n_options.merge(default: [type, type.to_s],
-                                              scope: [:rapporteur, @list_type, key]))
+      I18n.translate(type,
+                     i18n_options.merge(default: [type, type.to_s],
+                                        scope:   [:rapporteur, @list_type, key]))
     end
 
     def normalize_message(attribute, message, i18n_options)

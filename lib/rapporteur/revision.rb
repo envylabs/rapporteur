@@ -36,20 +36,20 @@ module Rapporteur
     #
     def self.default_revision_source
       `git rev-parse HEAD 2>/dev/null`.strip
-    rescue
+    rescue StandardError
     end
 
     # Internal: Calculates the current revision from the configured revision
     # source.
     #
-    def self.calculate_current(revision = default_revision_source)
+    def self.calculate_current(revision=default_revision_source)
       case revision
       when String
         revision
       when Proc
         revision.call.to_s
       when NilClass
-        'You must provide a Rapporteur::Revision.current= String or Proc'
+        "You must provide a Rapporteur::Revision.current= String or Proc"
       else
         raise ArgumentError, "Unknown revision type given: #{revision.inspect}"
       end

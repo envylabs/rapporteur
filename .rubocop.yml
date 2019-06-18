@@ -1,39 +1,116 @@
----
-
-AllCops:
-  Exclude:
-    - 'gemfiles/*'
-  TargetRubyVersion: 2.3
-
-Layout/CaseIndentation:
-  Enabled: true
-  EnforcedStyle: "end"
-
-Layout/EndOfLine:
-  EnforcedStyle: "lf"
-
-Layout/IndentHeredoc:
-  EnforcedStyle: "squiggly"
-
-Layout/IndentationConsistency:
-  EnforcedStyle: "normal"
-
 Metrics/BlockLength:
   Exclude:
-    - 'Rakefile'
-    - '**/*.rake'
-    - 'spec/**/*.rb'
+    - db/migrate/*
+    - spec/**/*_spec.rb
 
-Metrics/ModuleLength:
-  Exclude:
-    - 'spec/**/*.rb'
+# Commonly used screens these days easily fit more than 80 characters.
+Metrics/LineLength:
+  AutoCorrect: true
+  Max: 120
 
-Style/SafeNavigation:
+# Rubocop recommends enabling these rules to further format broken lines when
+# Metrics/LineLength autocorrection is enabled.
+Layout/IndentFirstArgument:
+  EnforcedStyle: consistent
+Layout/MultilineArrayLineBreaks:
+  Enabled: true
+Layout/MultilineHashKeyLineBreaks:
+  Enabled: true
+Layout/MultilineMethodArgumentLineBreaks:
+  Enabled: true
+
+# Too-short methods lead to extraction of single-use methods, which can make
+# the code easier to read (by naming things), but can also clutter the class.
+Metrics/MethodLength:
+  Max: 20
+
+# The guiding principle of classes is SRP, and SRP can't be accurately measured
+# by LoC.
+Metrics/ClassLength:
   Enabled: false
 
-Style/StringLiterals:
-  EnforcedStyle: "single_quotes"
+# No space makes the method definition shorter and differentiates from a
+# regular assignment.
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
 
-inherit_gem:
-  rubocop-rails_config:
-    - "config/rails.yml"
+# Single quotes being faster is hardly measurable and only affects parse time.
+# Enforcing double quotes reduces the times where you need to change them when
+# introducing an interpolation. Use single quotes only if their semantics are
+# needed.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Most readable form.
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+# Mixing the styles looks just silly.
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+# #has_key? and #has_value? are more readable than #key? and #value?.
+Style/PreferredHashMethods:
+  EnforcedStyle: verbose
+
+# String#% is by far the least verbose and only object oriented variant.
+Style/FormatString:
+  EnforcedStyle: percent
+
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    # inject seems more common in the community.
+    reduce: "inject"
+
+# Either allow this style or don't. Marking it as safe with parenthesis
+# is silly. Let's try to live without them for now.
+Style/ParenthesesAroundCondition:
+  AllowSafeAssignment: false
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: false
+
+# A specialized exception class will take one or more arguments and construct
+# the message from it. So both variants make sense.
+Style/RaiseArgs:
+  Enabled: false
+
+# Suppressing exceptions can be perfectly fine, be it to avoid to explicitly
+# type nil into the rescue since that's what you want to return, or suppressing
+# LoadError for optional dependencies.
+Lint/HandleExceptions:
+  Enabled: false
+
+# No trailing space differentiates better from the block:
+# foo} means hash, foo } means block.
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+# { ... } for multi-line blocks is okay, follow Weirichs rule instead:
+# https://web.archive.org/web/20140221124509/http://onestepback.org/index.cgi/Tech/Ruby/BraceVsDoEnd.rdoc
+Style/BlockDelimiters:
+  EnforcedStyle: semantic
+  FunctionalMethods:
+    - constraint
+    - let
+    - let!
+    - subject
+
+# do / end blocks should be used for side effects, methods that run a block for
+# side effects and have a useful return value are rare, assign the return value
+# to a local variable for those cases.
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+# Shadowing outer local variables with block parameters is often useful to not
+# reinvent a new name for the same thing, it highlights the relation between
+# the outer variable and the parameter. The cases where it's actually confusing
+# are rare, and usually bad for other reasons already, for example because the
+# method is too long.
+Lint/ShadowingOuterLocalVariable:
+  Enabled: false
+
+# Check with yard instead.
+Style/Documentation:
+  Enabled: false

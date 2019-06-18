@@ -2,7 +2,7 @@
 
 module Rapporteur
   module Checks
-    autoload :ActiveRecordCheck, 'rapporteur/checks/active_record_check'
+    autoload :ActiveRecordCheck, "rapporteur/checks/active_record_check"
 
     # A check which simply reports the current clock time in UTC. This check is
     # useful because it shows that the status end point is not being cached and
