@@ -13,7 +13,9 @@ jobs:
   fail_fast: true
   include:
     - rvm: "2.6.3"
-      script: "bundle exec rake"
+      script:
+        - "bundle exec rubocop -fs"
+        - "bundle exec rake"
       stage: "Test"
 
     - env: "BUNDLE_GEMFILE=$PWD/gemfiles/rails_latest.gemfile"
