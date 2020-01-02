@@ -30,13 +30,13 @@ module Rapporteur
     # Returns self.
     # Raises ArgumentError if the given check does not respond to call.
     #
-    def add_check(object_or_nil_with_block=nil, &block)
+    def add_check(object_or_nil_with_block = nil, &block)
       if block_given?
         check_list.add(block)
       elsif object_or_nil_with_block.respond_to?(:call)
         check_list.add(object_or_nil_with_block)
       else
-        raise ArgumentError, "A check must respond to #call."
+        raise ArgumentError, 'A check must respond to #call.'
       end
       self
     end
@@ -114,7 +114,7 @@ module Rapporteur
     #
     # Returns self.
     #
-    def add_error(name, message, i18n_options={})
+    def add_error(name, message, i18n_options = {})
       errors.add(name, message, i18n_options)
       self
     end
@@ -141,7 +141,7 @@ module Rapporteur
     #
     # Returns self.
     #
-    def add_message(name, message, i18n_options={})
+    def add_message(name, message, i18n_options = {})
       messages.add(name, message, i18n_options)
       self
     end
@@ -149,7 +149,7 @@ module Rapporteur
     ##
     # Internal: Returns a hash of messages suitable for conversion into JSON.
     #
-    def as_json(_args={})
+    def as_json(_args = {})
       messages.to_hash
     end
 
