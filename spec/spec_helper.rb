@@ -23,7 +23,7 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.before do Rapporteur.clear_checks end
+  config.before { Rapporteur.clear_checks }
 
   config.include RouteHelper, type: :controller
   config.include RouteHelper, type: :routing

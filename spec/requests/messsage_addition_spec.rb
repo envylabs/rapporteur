@@ -4,7 +4,7 @@ RSpec.describe 'A status request with a check that modifies messages', type: :re
   context 'creating a message with a block' do
     context 'with an unerring response' do
       before do
-        Rapporteur.add_check do |checker| checker.add_message('git_repo', 'git@github.com:organization/repo.git') end
+        Rapporteur.add_check { |checker| checker.add_message('git_repo', 'git@github.com:organization/repo.git') }
         get(rapporteur.status_path(format: 'json'))
       end
 
@@ -17,7 +17,7 @@ RSpec.describe 'A status request with a check that modifies messages', type: :re
 
     context 'with an erring response' do
       before do
-        Rapporteur.add_check do |checker| checker.add_error(:base, 'failed') end
+        Rapporteur.add_check { |checker| checker.add_error(:base, 'failed') }
         get(rapporteur.status_path(format: 'json'))
       end
 
