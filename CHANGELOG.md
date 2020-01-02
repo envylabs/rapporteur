@@ -7,6 +7,10 @@
 
 ## [HEAD][] / unreleased
 
+* No significant changes.
+
+## [3.7.0][] / 2020-01-02
+
 * Add and test support for Rails 6.0. This also drops explicit testing of Rails
   5.0 and 5.1 as they are no longer officially maintained.
 
@@ -188,4 +192,5 @@
 [3.6.2]: https://github.com/envylabs/rapporteur/compare/v3.6.1...v3.6.2
 [3.6.3]: https://github.com/envylabs/rapporteur/compare/v3.6.2...v3.6.3
 [3.6.4]: https://github.com/envylabs/rapporteur/compare/v3.6.3...v3.6.4
-[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.6.4...master
+[3.7.0]: https://github.com/envylabs/rapporteur/compare/v3.6.4...v3.7.0
+[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.7.0...master
