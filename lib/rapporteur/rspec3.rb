@@ -11,7 +11,7 @@ shared_examples_for 'a successful status response' do
 
   context 'the response headers' do
     it 'contains a Content-Type JSON header' do
-      expect(response.content_type).to(eq(Mime[:json]))
+      expect(response.media_type).to(eq(Mime[:json]))
     end
 
     it 'does not contain an ETag header' do
@@ -39,7 +39,7 @@ shared_examples_for 'an erred status response' do
 
   context 'the response headers' do
     it 'contains a Content-Type JSON header' do
-      expect(response.content_type).to(eq(Mime[:json]))
+      expect(response.media_type).to(eq(Mime[:json]))
     end
 
     it 'does not contain an ETag header' do

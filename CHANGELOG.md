@@ -7,7 +7,8 @@
 
 ## [HEAD][] / unreleased
 
-* No significant changes.
+* Add and test support for Rails 6.0. This also drops explicit testing of Rails
+  5.0 and 5.1 as they are no longer officially maintained.
 
 ## [3.6.4][] / 2019-04-04
 
