@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rapporteur/version'
+require_relative 'lib/rapporteur/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'rapporteur'
@@ -13,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'An engine that provides common status polling endpoint.'
   spec.homepage      = 'https://github.com/envylabs/rapporteur'
   spec.license       = 'MIT'
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
   spec.metadata['source_code_uri'] = 'https://github.com/envylabs/rapporteur'
   spec.metadata['changelog_uri'] = 'https://github.com/envylabs/rapporteur/blob/master/CHANGELOG.md'
