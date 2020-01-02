@@ -50,14 +50,15 @@ $ bundle install
 
 Supported Ruby versions:
 
+* MRI 2.7
 * MRI 2.6
 * MRI 2.5
 * MRI 2.4
 
 Supported frameworks:
 
-* Rails 5.x.
-* Rails 4.2+.
+* Rails 6.0.
+* Rails 5.2.
 * Sinatra 2.x.
 * Sinatra 1.x.
 
