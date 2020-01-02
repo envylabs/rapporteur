@@ -10,7 +10,7 @@ branches:
     - '/^v\d+\.\d+\.\d+/'
 cache:
   bundler: true
-dist: "xenial"
+dist: "bionic"
 jobs:
   fail_fast: true
   include:
