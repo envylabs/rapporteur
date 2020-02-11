@@ -14,12 +14,8 @@ shared_examples_for 'a successful status response' do
       expect(response.media_type).to(eq(Mime[:json]))
     end
 
-    it 'does not contain an ETag header' do
-      expect(response.headers).not_to have_key('ETag')
-    end
-
     it 'contains a Cache-Control header which disables client caching' do
-      expect(response.headers.fetch('Cache-Control')).to eq('no-cache')
+      expect(response.headers.fetch('Cache-Control')).to include('no-cache')
     end
   end
 
@@ -42,12 +38,8 @@ shared_examples_for 'an erred status response' do
       expect(response.media_type).to(eq(Mime[:json]))
     end
 
-    it 'does not contain an ETag header' do
-      expect(response.headers).not_to have_key('ETag')
-    end
-
     it 'contains a Cache-Control header which disables client caching' do
-      expect(response.headers.fetch('Cache-Control')).to eq('no-cache')
+      expect(response.headers.fetch('Cache-Control')).to include('no-cache')
     end
   end
 
