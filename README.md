@@ -48,22 +48,14 @@ $ bundle install
 
 ### Supported environments
 
-Supported Ruby versions:
+This library follows the maintenance policy of
+[Ruby](https://www.ruby-lang.org/en/downloads/branches/),
+[Ruby on Rails](https://guides.rubyonrails.org/maintenance_policy.html), and
+[Sinatra](https://github.com/sinatra/sinatra/blob/master/MAINTENANCE.md) for
+testing and maintaining these environments.
 
-* MRI 2.7
-* MRI 2.6
-* MRI 2.5
-* MRI 2.4
-
-Supported frameworks:
-
-* Rails 6.0.
-* Rails 5.2.
-* Sinatra 2.x.
-* Sinatra 1.x.
-
-Older versions of Ruby and frameworks may also work with this library, however
-they are not officially supported.
+Unsupported versions of Ruby, Ruby on Rails, or Sinatra may also work with this
+library, however they are not officially supported or tested against.
 
 ## Usage
 
