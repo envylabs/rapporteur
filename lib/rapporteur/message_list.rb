@@ -109,9 +109,7 @@ module Rapporteur
     private
 
     def generate_message(key, type, i18n_options)
-      I18n.translate(type,
-                     i18n_options.merge(default: [type, type.to_s],
-                                        scope:   [:rapporteur, @list_type, key]))
+      I18n.translate(type, **i18n_options.merge(default: [type, type.to_s], scope: [:rapporteur, @list_type, key]))
     end
 
     def normalize_message(attribute, message, i18n_options)

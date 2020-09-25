@@ -7,7 +7,7 @@
 
 ## [HEAD][] / unreleased
 
-* No significant changes.
+* Fix a Ruby 2.7 keyword argument deprecation warning in MessageList.
 
 ## [3.7.0][] / 2020-01-02
 
