@@ -7,6 +7,10 @@
 
 ## [HEAD][] / unreleased
 
+* No significant changes.
+
+## [3.7.1][] / 2020-09-25
+
 * Fix a Ruby 2.7 keyword argument deprecation warning in MessageList.
 
 ## [3.7.0][] / 2020-01-02
@@ -193,4 +197,5 @@
 [3.6.3]: https://github.com/envylabs/rapporteur/compare/v3.6.2...v3.6.3
 [3.6.4]: https://github.com/envylabs/rapporteur/compare/v3.6.3...v3.6.4
 [3.7.0]: https://github.com/envylabs/rapporteur/compare/v3.6.4...v3.7.0
-[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.7.0...master
+[3.7.1]: https://github.com/envylabs/rapporteur/compare/v3.7.0...v3.7.1
+[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.7.1...master

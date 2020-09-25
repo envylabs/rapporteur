@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rapporteur (3.7.0)
+    rapporteur (3.7.1)
       i18n (>= 0.6, < 2)
 
 GEM
