@@ -141,7 +141,7 @@ GEM
       thor (~> 1.0)
     rainbow (3.0.0)
     rake (13.0.3)
-    regexp_parser (2.0.1)
+    regexp_parser (2.0.2)
     rexml (3.2.4)
     rspec-collection_matchers (1.2.0)
       rspec-expectations (>= 2.99.0.beta1)
