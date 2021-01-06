@@ -1,0 +1,31 @@
+---
+jobs:
+  tests:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v1"
+      - uses: "actions/setup-ruby@v1"
+        with:
+          ruby-version: "2.7"
+      - name: "Install Latest Bundler"
+        run: |
+          gem install bundler --no-document
+          bundle config --global gemfile ${{ matrix.gemfile }}
+          bundle config path vendor/bundle
+          bundle config set without "tools benchmarks docs"
+      - name: "Bundle Install"
+        run: "bundle install --jobs 4 --retry 3"
+      - name: "Run Tests"
+        run: "bundle exec rake spec"
+      - name: "Check Ruby Style"
+        run: "bundle exec rubocop -c ./.rubocop.yml -fq"
+    strategy:
+      matrix:
+        gemfile:
+          - "Gemfile"
+          - "gemfiles/rails5.2.gemfile"
+          - "gemfiles/rails6.0.gemfile"
+          - "gemfiles/rails_latest.gemfile"
+          - "gemfiles/sinatra2.x.gemfile"
+name: "Tests"
+"on": ["push"]
