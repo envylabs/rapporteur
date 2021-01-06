@@ -12,6 +12,7 @@
 ## [3.7.1][] / 2020-09-25
 
 * Fix a Ruby 2.7 keyword argument deprecation warning in MessageList.
+* Test support for Rails 6.1.
 
 ## [3.7.0][] / 2020-01-02
 

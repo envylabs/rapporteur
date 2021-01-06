@@ -25,6 +25,7 @@ jobs:
           - "Gemfile"
           - "gemfiles/rails5.2.gemfile"
           - "gemfiles/rails6.0.gemfile"
+          - "gemfiles/rails6.1.gemfile"
           - "gemfiles/rails_latest.gemfile"
           - "gemfiles/sinatra2.x.gemfile"
 name: "Tests"
