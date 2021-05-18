@@ -1,5 +1,21 @@
 ---
 jobs:
+  release_github:
+    if: "github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')"
+    name: "Deploy to GitHub Packages"
+    needs: "tests"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v2"
+      - uses: "ruby/setup-ruby@v1"
+        with:
+          bundler-cache: true
+          ruby-version: "2.7"
+      - name: "Publish to GitHub"
+        uses: "jstastny/publish-gem-to-github@v1.3"
+        with:
+          owner: "envylabs"
+          token: "${{ secrets.GITHUB_TOKEN }}"
   tests:
     env:
       BUNDLE_GEMFILE: "${{matrix.gemfile}}"
@@ -24,5 +40,5 @@ jobs:
           - "gemfiles/rails6.1.gemfile"
           - "gemfiles/rails_latest.gemfile"
           - "gemfiles/sinatra2.x.gemfile"
-name: "Tests"
+name: "Test and Release"
 "on": ["push"]
