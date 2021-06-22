@@ -7,6 +7,10 @@
 
 ## [HEAD][] / unreleased
 
+* No significant changes.
+
+## [3.7.2][] / 2021-06-22
+
 * Test support for Rails 6.1.
 
 ## [3.7.1][] / 2020-09-25
@@ -198,4 +202,5 @@
 [3.6.4]: https://github.com/envylabs/rapporteur/compare/v3.6.3...v3.6.4
 [3.7.0]: https://github.com/envylabs/rapporteur/compare/v3.6.4...v3.7.0
 [3.7.1]: https://github.com/envylabs/rapporteur/compare/v3.7.0...v3.7.1
-[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.7.1...master
+[3.7.2]: https://github.com/envylabs/rapporteur/compare/v3.7.1...v3.7.2
+[HEAD]: https://github.com/envylabs/rapporteur/compare/v3.7.2...master
