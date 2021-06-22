@@ -1,32 +1,13 @@
-version: 2
+---
 updates:
-- package-ecosystem: bundler
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "10:00"
-  open-pull-requests-limit: 10
-  allow:
-  - dependency-type: direct
-  - dependency-type: indirect
-  ignore:
-  - dependency-name: bundler
-    versions:
-    - ">= 1.a, < 2"
-  - dependency-name: mimemagic
-    versions:
-    - 0.3.10
-    - 0.3.6
-    - 0.3.9
-  - dependency-name: rspec-rails
-    versions:
-    - 5.0.0
-  - dependency-name: rubocop-performance
-    versions:
-    - 1.10.1
-  - dependency-name: regexp_parser
-    versions:
-    - 2.1.1
-  - dependency-name: minitest
-    versions:
-    - 5.14.4
+  - allow:
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+    directory: "/"
+    open-pull-requests-limit: 10
+    package-ecosystem: "bundler"
+    schedule:
+      interval: "daily"
+      time: "10:00"
+    versioning-strategy: "increase-if-necessary"
+version: 2
