@@ -26,7 +26,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'i18n', '>= 0.6', '< 2'
 
   spec.add_development_dependency 'appraisal', '~> 2.1'
-  spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'combustion', '~> 1.0'
   spec.add_development_dependency 'rails', '>= 3.1', '< 7'
   spec.add_development_dependency 'rake', '~> 13.0'
