@@ -231,5 +231,8 @@ DEPENDENCIES
   rubocop-rails_config (~> 1.0)
   sqlite3
 
+RUBY VERSION
+   ruby 2.7.4p191
+
 BUNDLED WITH
    2.2.27
