@@ -60,11 +60,6 @@ GEM
     activerecord (7.0.1)
       activemodel (= 7.0.1)
       activesupport (= 7.0.1)
-    activerecord-jdbc-adapter (50.0)
-      activerecord (>= 2.2)
-    activerecord-jdbcsqlite3-adapter (50.0)
-      activerecord-jdbc-adapter (~> 50.0)
-      jdbc-sqlite3 (~> 3.8, < 3.30)
     activestorage (7.0.1)
       actionpack (= 7.0.1)
       activejob (= 7.0.1)
@@ -91,14 +86,12 @@ GEM
     crass (1.0.6)
     diff-lcs (1.5.0)
     digest (3.1.0)
-    digest (3.1.0-java)
     erubi (1.10.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     io-wait (0.2.1)
-    jdbc-sqlite3 (3.28.0)
     loofah (2.13.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -125,17 +118,13 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
-    nio4r (2.5.8-java)
     nokogiri (1.13.1)
       mini_portile2 (~> 2.7.0)
-      racc (~> 1.4)
-    nokogiri (1.13.1-java)
       racc (~> 1.4)
     parallel (1.21.0)
     parser (3.1.0.0)
       ast (~> 2.4.1)
     racc (1.6.0)
-    racc (1.6.0-java)
     rack (2.2.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -228,8 +217,6 @@ GEM
     unicode-display_width (2.1.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
-    websocket-driver (0.7.5-java)
-      websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     zeitwerk (2.5.3)
 
@@ -249,9 +236,6 @@ DEPENDENCIES
   rubocop (~> 1.0)
   rubocop-rails_config (~> 1.0)
   sqlite3
-
-RUBY VERSION
-   ruby 2.7.4p191
 
 BUNDLED WITH
    2.3.5
