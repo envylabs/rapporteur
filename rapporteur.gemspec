@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'appraisal', '~> 2.1'
   spec.add_development_dependency 'combustion', '~> 1.0'
-  spec.add_development_dependency 'rails', '>= 3.1', '< 7'
+  spec.add_development_dependency 'rails', '>= 3.1', '< 7.1'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec-collection_matchers', '~> 1.0'
   spec.add_development_dependency 'rspec-rails', '~> 5.0'

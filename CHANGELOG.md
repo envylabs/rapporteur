@@ -7,7 +7,7 @@
 
 ## [HEAD][] / unreleased
 
-* No significant changes.
+* Add support for Rails 7.0.
 
 ## [3.7.2][] / 2021-06-22
 
