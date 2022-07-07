@@ -10,4 +10,9 @@ updates:
       interval: "daily"
       time: "10:00"
     versioning-strategy: "increase-if-necessary"
+  - directory: "/"
+    package-ecosystem: "github-actions"
+    schedule:
+      interval: "daily"
+      time: "13:00"
 version: 2
