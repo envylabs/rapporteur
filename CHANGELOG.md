@@ -7,7 +7,7 @@
 
 ## [HEAD][] / unreleased
 
-* No significant changes.
+* Remove testing of Rails 5.2 as it is no longer officially maintained.
 
 ## [3.8.0][] / 2022-01-23
 
