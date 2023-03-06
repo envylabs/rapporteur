@@ -2,6 +2,7 @@
 
 appraise 'rails6.0' do
   gem 'rails', '~> 6.0.0'
+  gem 'rspec-rails', '~> 5.1.2' # 6.x requires Rails 6.1+.
 end
 
 appraise 'rails6.1' do
