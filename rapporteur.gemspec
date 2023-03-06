@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.4.0'
 
   spec.metadata['source_code_uri'] = 'https://github.com/envylabs/rapporteur'
-  spec.metadata['changelog_uri'] = 'https://github.com/envylabs/rapporteur/blob/master/CHANGELOG.md'
+  spec.metadata['changelog_uri'] = 'https://github.com/envylabs/rapporteur/blob/main/CHANGELOG.md'
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
