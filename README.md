@@ -101,11 +101,11 @@ endpoints.
 So, here is an example usage in Sinatra:
 
 ```ruby
-require "rapporteur"
-require "sinatra/base"
+require 'rapporteur'
+require 'sinatra/base'
 
 class MyApp < Sinatra::Base
-  get "/status.json" do
+  get '/status.json' do
     content_type :json
     status(result.errors.empty? ? 200 : 500)
     body Rapporteur.run.as_json.to_json
@@ -160,7 +160,7 @@ happy with it, add an error to the given `checker` instance:
 
 # Define a simple check as a block:
 Rapporteur.add_check do |checker|
-  checker.add_message(:paid, "too much")
+  checker.add_message(:paid, 'too much')
 end
 
 # Make and use a reusable Proc or lambda:
@@ -199,14 +199,14 @@ Rails application:
 
 ```ruby
 # config/initializers/rapporteur.rb
-Rapporteur::Revision.current = "revision123"
+Rapporteur::Revision.current = 'revision123'
 ```
 
 ```ruby
 # config/environments/production.rb
 MyApplication.configure do
   config.to_prepare do
-    Rapporteur::Revision.current = "revision123"
+    Rapporteur::Revision.current = 'revision123'
   end
 end
 ```
@@ -216,13 +216,13 @@ executed and memoized. Useful examples of this are:
 
 ```ruby
 # Read a Capistrano REVISION file
-Rapporteur::Revision.current = Rails.root.join("REVISION").read.strip
+Rapporteur::Revision.current = Rails.root.join('REVISION').read.strip
 
 # Force a particular directory and use Git
 Rapporteur::Revision.current = `cd "#{Rails.root}" && git rev-parse HEAD`.strip
 
 # Use an ENV variable (Heroku Bamboo Stack)
-Rapporteur::Revision.current = ENV["REVISION"]
+Rapporteur::Revision.current = ENV['REVISION']
 
 # Do some crazy calculation
 Rapporteur::Revision.current = lambda { MyRevisionCalculator.execute! }
