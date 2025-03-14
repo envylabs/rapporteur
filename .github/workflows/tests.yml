@@ -16,7 +16,7 @@ jobs:
         run: "bundle exec rubocop -c ./.rubocop.yml -fq"
       - if: "github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')"
         name: "Publish to GitHub Packages"
-        uses: "jstastny/publish-gem-to-github@v2.3"
+        uses: "jstastny/publish-gem-to-github@v2.4"
         with:
           owner: "envylabs"
           token: "${{ secrets.GITHUB_TOKEN }}"
