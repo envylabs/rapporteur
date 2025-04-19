@@ -3,6 +3,7 @@ jobs:
   tests:
     env:
       BUNDLE_GEMFILE: "${{matrix.gemfile}}"
+    name: "Tests"
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v4"
@@ -13,12 +14,6 @@ jobs:
         run: "bundle exec rake spec"
       - name: "Check Ruby Style"
         run: "bundle exec rubocop -c ./.rubocop.yml -fq"
-      - if: "github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')"
-        name: "Publish to GitHub Packages"
-        uses: "jstastny/publish-gem-to-github@v2.3"
-        with:
-          owner: "envylabs"
-          token: "${{ secrets.GITHUB_TOKEN }}"
     strategy:
       fail-fast: false
       matrix:
@@ -29,6 +24,11 @@ jobs:
           - "gemfiles/rails7.gemfile"
           - "gemfiles/rails8.0.gemfile"
           - "gemfiles/sinatra2.x.gemfile"
-name: "Test and Release"
+name: "Tests"
 "on":
-  - "push"
+  pull_request:
+    branches:
+      - "main"
+  push:
+    branches:
+      - "main"
