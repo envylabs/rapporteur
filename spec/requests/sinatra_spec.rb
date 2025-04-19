@@ -10,6 +10,8 @@ begin
     include Rack::Test::Methods
 
     class TestApp < Sinatra::Base
+      set :host_authorization, { permitted_hosts: [] }
+
       get '/status.json' do
         content_type :json
         body Rapporteur.run.as_json.to_json
