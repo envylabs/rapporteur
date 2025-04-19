@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
-appraise 'rails6.0' do
-  gem 'rails', '~> 6.0.0'
-  gem 'rspec-rails', '~> 5.1.2' # 6.x requires Rails 6.1+.
+appraise 'rails7.1' do
+  gem 'rails', '~> 7.1.0'
 end
 
-appraise 'rails6.1' do
-  gem 'rails', '~> 6.1.0'
+appraise 'rails7' do
+  gem 'rails', '~> 7.1'
 end
 
-appraise 'rails7.0' do
-  gem 'rails', '~> 7.0.0'
+appraise 'rails8.0' do
+  gem 'rails', '~> 8.0.0'
 end
 
 appraise 'rails-latest' do

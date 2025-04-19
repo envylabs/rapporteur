@@ -24,10 +24,10 @@ jobs:
       matrix:
         gemfile:
           - "Gemfile"
-          - "gemfiles/rails6.0.gemfile"
-          - "gemfiles/rails6.1.gemfile"
-          - "gemfiles/rails7.0.gemfile"
           - "gemfiles/rails_latest.gemfile"
+          - "gemfiles/rails7.1.gemfile"
+          - "gemfiles/rails7.gemfile"
+          - "gemfiles/rails8.0.gemfile"
           - "gemfiles/sinatra2.x.gemfile"
 name: "Test and Release"
 "on":
