@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rails', '>= 7.1', '< 8.1'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec-collection_matchers', '~> 1.0'
-  spec.add_development_dependency 'rspec-rails', '~> 6.0'
+  spec.add_development_dependency 'rspec-rails', '~> 7.0'
   spec.add_development_dependency 'rubocop', '~> 1.0'
   spec.add_development_dependency 'rubocop-rails_config', '~> 1.0'
 end
