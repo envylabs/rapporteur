@@ -17,7 +17,7 @@ begin
     end
 
     def app
-      TestApp
+      Rack::Lint.new(TestApp)
     end
 
     before do
