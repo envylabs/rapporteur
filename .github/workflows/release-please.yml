@@ -21,20 +21,13 @@ jobs:
       - uses: "ruby/setup-ruby@v1"
         with:
           bundler-cache: true
-      - env:
-          RUBYGEMS_API_KEY: "${{ secrets.RUBYGEMS_API_KEY }}"
-        name: "Setup Access to rubygems.org Registry"
-        run: |
-          mkdir -p $HOME/.gem
-          touch $HOME/.gem/credentials
-          chmod 600 $HOME/.gem/credentials
-          echo "---\n:rubygems_api_key: ${RUBYGEMS_API_KEY}" >> $HOME/.gem/credentials
       - name: "Build Rubygem"
         run: "gem build rapporteur.gemspec"
       - env:
           BINARY_NAME: "rapporteur-${{ needs.release-please.outputs.version_number }}.gem"
+          RUBYGEMS_API_KEY: "${{ secrets.RUBYGEMS_API_KEY }}"
         name: "Push Rubygem"
-        run: 'gem push "$BINARY_NAME"'
+        run: 'GEM_HOST_API_KEY="$RUBYGEMS_API_KEY" gem push "$BINARY_NAME"'
       - env:
           BINARY_NAME: "rapporteur-${{ needs.release-please.outputs.version_number }}.gem"
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
