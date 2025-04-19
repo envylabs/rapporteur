@@ -5,6 +5,13 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/8c498efff627b93db4b9/maintainability)](https://codeclimate.com/github/envylabs/rapporteur/maintainability)
 [![Inline docs](http://inch-ci.org/github/envylabs/rapporteur.svg?branch=main)](http://inch-ci.org/github/envylabs/rapporteur)
 
+## [3.9.0](https://github.com/envylabs/rapporteur/compare/v3.8.0...v3.9.0) (2025-04-19)
+
+
+### Features
+
+* set minimum Ruby version to 3.2 ([58ce959](https://github.com/envylabs/rapporteur/commit/58ce959804714e0a2e51e5610e4816c7b7d7eb9f))
+
 ## [HEAD][] / unreleased
 
 * Remove testing of Rails 5.2 as it is no longer officially maintained.
