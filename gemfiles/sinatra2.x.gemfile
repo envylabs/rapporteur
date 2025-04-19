@@ -3,6 +3,7 @@
 source "https://rubygems.org"
 
 gem "activerecord-jdbcsqlite3-adapter", platforms: :jruby
+gem "rails", ">= 7.1", "< 8.1"
 gem "sqlite3", platforms: :ruby
 gem "sinatra", "~> 2.0"
 

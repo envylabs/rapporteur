@@ -19,3 +19,11 @@ end
 appraise 'sinatra2.x' do
   gem 'sinatra', '~> 2.0'
 end
+
+appraise 'sinatra3.x' do
+  gem 'sinatra', '~> 3.0'
+end
+
+appraise 'sinatra4.x' do
+  gem 'sinatra', '~> 4.0'
+end

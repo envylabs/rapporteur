@@ -24,6 +24,8 @@ jobs:
           - "gemfiles/rails7.gemfile"
           - "gemfiles/rails8.0.gemfile"
           - "gemfiles/sinatra2.x.gemfile"
+          - "gemfiles/sinatra3.x.gemfile"
+          - "gemfiles/sinatra4.x.gemfile"
 name: "Tests"
 "on":
   pull_request:
