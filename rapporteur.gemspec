@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'An engine that provides common status polling endpoint.'
   spec.homepage      = 'https://github.com/envylabs/rapporteur'
   spec.license       = 'MIT'
-  spec.required_ruby_version = '>= 2.4.0'
+  spec.required_ruby_version = '>= 3.2'
 
   spec.metadata['source_code_uri'] = 'https://github.com/envylabs/rapporteur'
   spec.metadata['changelog_uri'] = 'https://github.com/envylabs/rapporteur/blob/main/CHANGELOG.md'
