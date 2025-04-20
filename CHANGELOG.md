@@ -1,9 +1,7 @@
 # Rapporteur changelog
 
-[![Gem Version](http://img.shields.io/gem/v/rapporteur.svg?style=flat)](http://rubygems.org/gems/rapporteur)
-[![Test and Release](https://github.com/envylabs/rapporteur/actions/workflows/tests.yml/badge.svg)](https://github.com/envylabs/rapporteur/actions/workflows/tests.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/8c498efff627b93db4b9/maintainability)](https://codeclimate.com/github/envylabs/rapporteur/maintainability)
-[![Inline docs](http://inch-ci.org/github/envylabs/rapporteur.svg?branch=main)](http://inch-ci.org/github/envylabs/rapporteur)
+[![Gem Version](https://badge.fury.io/rb/rapporteur.svg)](https://badge.fury.io/rb/rapporteur)
+[![Tests](https://github.com/envylabs/rapporteur/actions/workflows/tests.yml/badge.svg)](https://github.com/envylabs/rapporteur/actions/workflows/tests.yml)
 
 ## [3.9.0](https://github.com/envylabs/rapporteur/compare/v3.8.0...v3.9.0) (2025-04-19)
 
