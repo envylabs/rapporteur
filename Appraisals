@@ -27,3 +27,7 @@ end
 appraise 'sinatra4.x' do
   gem 'sinatra', '~> 4.0'
 end
+
+appraise 'sinatra-latest' do
+  gem 'sinatra'
+end
