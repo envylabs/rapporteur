@@ -1,47 +1,38 @@
 ---
-
 jobs:
   release-please:
     outputs:
       release_created: "${{ steps.release.outputs.release_created }}"
       tag_name: "${{ steps.release.outputs.tag_name }}"
       version_number: "${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}"
+    permissions:
+      contents: "write"
+      issues: "write"
+      pull-requests: "write"
     runs-on: "ubuntu-latest"
     steps:
       - id: "release"
         uses: "googleapis/release-please-action@v4"
 
-  releases:
+  release:
     if: "${{ needs.release-please.outputs.release_created }}"
+    name: "Release"
     needs:
       - "release-please"
+    permissions:
+      id-token: "write"
+      contents: "write"
     runs-on: "ubuntu-latest"
     steps:
       - uses: "actions/checkout@v4"
       - uses: "ruby/setup-ruby@v1"
         with:
           bundler-cache: true
-      - name: "Build Rubygem"
-        run: "gem build rapporteur.gemspec"
-      - env:
-          BINARY_NAME: "rapporteur-${{ needs.release-please.outputs.version_number }}.gem"
-          RUBYGEMS_API_KEY: "${{ secrets.RUBYGEMS_API_KEY }}"
-        name: "Push Rubygem"
-        run: 'GEM_HOST_API_KEY="$RUBYGEMS_API_KEY" gem push "$BINARY_NAME"'
-      - env:
-          BINARY_NAME: "rapporteur-${{ needs.release-please.outputs.version_number }}.gem"
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        name: "Upload Release Artifact"
-        run: 'gh release upload ${{ needs.release-please.outputs.tag_name }} "$BINARY_NAME"'
+      - uses: "rubygems/release-gem@v1"
 
-name: "Release Please"
+name: "Release"
 
 "on":
   push:
     branches:
       - "main"
-
-permissions:
-  contents: "write"
-  issues: "write"
-  pull-requests: "write"
