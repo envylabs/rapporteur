@@ -2,6 +2,7 @@
 
 appraise 'rails7.1' do
   gem 'rails', '~> 7.1.0'
+  gem 'rspec-rails', '~> 7.0'
 end
 
 appraise 'rails7' do

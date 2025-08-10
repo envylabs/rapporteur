@@ -5,5 +5,6 @@ source "https://rubygems.org"
 gem "activerecord-jdbcsqlite3-adapter", platforms: :jruby
 gem "rails", "~> 7.1.0"
 gem "sqlite3", platforms: :ruby
+gem "rspec-rails", "~> 7.0"
 
 gemspec path: "../"
