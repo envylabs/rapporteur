@@ -9,6 +9,10 @@ appraise 'rails7' do
   gem 'rails', '~> 7.1'
 end
 
+appraise 'rails8.1' do
+  gem 'rails', '~> 8.1'
+end
+
 appraise 'rails8.0' do
   gem 'rails', '~> 8.0.0'
 end
