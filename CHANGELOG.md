@@ -3,6 +3,13 @@
 [![Gem Version](https://badge.fury.io/rb/rapporteur.svg)](https://badge.fury.io/rb/rapporteur)
 [![Tests](https://github.com/envylabs/rapporteur/actions/workflows/tests.yml/badge.svg)](https://github.com/envylabs/rapporteur/actions/workflows/tests.yml)
 
+## [3.10.0](https://github.com/envylabs/rapporteur/compare/v3.9.0...v3.10.0) (2026-08-16)
+
+
+### Features
+
+* test and allow for rails 8.1.x ([8f9209f](https://github.com/envylabs/rapporteur/commit/8f9209fe38816c00d4f5061fa090f90f74894b6a))
+
 ## [3.9.0](https://github.com/envylabs/rapporteur/compare/v3.8.0...v3.9.0) (2025-04-19)
 
 
