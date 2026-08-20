@@ -3,6 +3,13 @@
 [![Gem Version](https://badge.fury.io/rb/rapporteur.svg)](https://badge.fury.io/rb/rapporteur)
 [![Tests](https://github.com/envylabs/rapporteur/actions/workflows/tests.yml/badge.svg)](https://github.com/envylabs/rapporteur/actions/workflows/tests.yml)
 
+## [3.11.0](https://github.com/envylabs/rapporteur/compare/v3.10.0...v3.11.0) (2026-08-20)
+
+
+### Features
+
+* drop testing of Rails 7.1, Sinatra 2, and Sinatra 3 ([2350ecf](https://github.com/envylabs/rapporteur/commit/2350ecf1904e73b40f4bf208c651ea1c28929e35))
+
 ## [3.10.0](https://github.com/envylabs/rapporteur/compare/v3.9.0...v3.10.0) (2026-08-16)
 
 
