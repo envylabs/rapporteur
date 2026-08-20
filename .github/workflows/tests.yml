@@ -20,13 +20,9 @@ jobs:
         gemfile:
           - "Gemfile"
           - "gemfiles/rails_latest.gemfile"
-          - "gemfiles/rails7.1.gemfile"
-          - "gemfiles/rails7.gemfile"
           - "gemfiles/rails8.0.gemfile"
           - "gemfiles/rails8.1.gemfile"
           - "gemfiles/sinatra_latest.gemfile"
-          - "gemfiles/sinatra2.x.gemfile"
-          - "gemfiles/sinatra3.x.gemfile"
           - "gemfiles/sinatra4.x.gemfile"
 name: "Tests"
 "on":
